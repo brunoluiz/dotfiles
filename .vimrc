@@ -10,7 +10,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'ludovicchabant/vim-gutentags'
+" Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sheerun/vim-polyglot'
@@ -59,7 +59,7 @@ set backspace=2 " allows the same system backspace behavior
 
 " tweaks and visuals
 set number " show line numbers
-set cursorline " highlight actual line
+set nocursorline " do not highlight actual line (performance issues)
 set showmatch " show matching items, such as [], {}...
 set wildmenu " cmd auto-completion
 set ruler " show line and column
@@ -113,7 +113,7 @@ set noeol
 set mouse=a
 
 " clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " invisible chars
 set list
