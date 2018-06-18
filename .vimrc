@@ -21,6 +21,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'w0rp/ale'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'docteurklein/php-getter-setter.vim'
 " Plugin 'tpope/vim-abolish' " still studying if it's worth my attention
 call vundle#end()            " required
 
@@ -34,9 +36,10 @@ let g:airline_powerline_fonts=1
 set laststatus=2
 
 " nerdtree
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeAutoDeleteBuffer = 1
 map <C-n> :NERDTreeToggle<CR>
 
 " nerdcommenter
