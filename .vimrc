@@ -23,10 +23,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'w0rp/ale'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'docteurklein/php-getter-setter.vim'
+" Plugin 'ryanoasis/vim-devicons'
+" Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plugin 'tpope/vim-abolish' " still studying if it's worth my attention
 call vundle#end()            " required
 
 filetype plugin indent on    " required
+set encoding=UTF-8
 
 " airline 
 let g:airline#extensions#tabline#enabled=1
@@ -41,6 +44,12 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 map <C-n> :NERDTreeToggle<CR>
+
+" nerdtree highlight
+let g:NERDTreeHighlightCursorline = 0 " disable cursor line to avoid lags
+" let g:NERDTreeFileExtensionHighlightFullName = 1
+" let g:NERDTreeExactMatchHighlightFullName = 1
+" let g:NERDTreePatternMatchHighlightFullName = 1
 
 " nerdcommenter
 let g:NERDSpaceDelims = 1
@@ -123,8 +132,8 @@ set list
 set listchars=tab:▸\ ,eol:¬,trail:·,space:·
 
 " enable omnifunction
-set omnifunc=syntaxcomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
+" set omnifunc=syntaxcomplete#Complete
+" let g:SuperTabDefaultCompletionType = "context"
 
 " syntax 
 syntax on
