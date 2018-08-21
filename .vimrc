@@ -30,6 +30,7 @@ Plug 'docteurklein/php-getter-setter.vim', { 'for' : 'php' }
 " Plug 'ryanoasis/vim-devicons'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-abolish' " still studying if it's worth my attention
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 filetype plugin indent on    " required
