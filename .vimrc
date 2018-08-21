@@ -26,11 +26,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'VundleVim/Vundle.vim'
 Plug 'w0rp/ale'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'docteurklein/php-getter-setter.vim', { 'for' : 'php' }
 " Plug 'ryanoasis/vim-devicons'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-abolish' " still studying if it's worth my attention
 Plug 'junegunn/goyo.vim'
+Plug 'docteurklein/php-getter-setter.vim', { 'for' : 'php' }
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 filetype plugin indent on    " required
