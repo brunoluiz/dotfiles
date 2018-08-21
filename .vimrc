@@ -154,3 +154,10 @@ let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 
 " ale (replace neomake)
 let g:ale_linters = { 'javascript': ['eslint'] } " select js linters
+
+" gui
+set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+set antialias
+set guioptions=
+set visualbell
+
