@@ -36,6 +36,7 @@ call plug#end()
 filetype plugin indent on    " required
 set encoding=UTF-8
 set ffs=unix,dos,mac " use Unix as the standard file type
+set autoread " set to auto read when a file is changed from the outside
 
 " airline 
 let g:airline#extensions#tabline#enabled=1
