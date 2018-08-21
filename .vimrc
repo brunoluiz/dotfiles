@@ -12,7 +12,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdcommenter'
@@ -39,7 +39,7 @@ set encoding=UTF-8
 set ffs=unix,dos,mac " use Unix as the standard file type
 set autoread " set to auto read when a file is changed from the outside
 
-" airline 
+" airline
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
 let g:airline_skip_empty_sections=1
@@ -142,10 +142,10 @@ set list
 set listchars=tab:▸\ ,eol:¬,trail:·,space:·
 
 " enable omnifunction
-" set omnifunc=syntaxcomplete#Complete
-" let g:SuperTabDefaultCompletionType = "context"
+set omnifunc=syntaxcomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
 
-" syntax 
+" syntax
 syntax on
 let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 
