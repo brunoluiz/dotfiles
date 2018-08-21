@@ -35,6 +35,7 @@ call plug#end()
 
 filetype plugin indent on    " required
 set encoding=UTF-8
+set ffs=unix,dos,mac " use Unix as the standard file type
 
 " airline 
 let g:airline#extensions#tabline#enabled=1
@@ -85,6 +86,7 @@ set confirm " when leaving without save, shows a confirmation pop-up (instead of
 set anti enc=utf-8
 set autowrite "Save on buffer switch
 set lazyredraw " stop redrawing everytime vim!
+set foldcolumn=1 " add extra space to number column
 
 " keyboard general mappings
 :nnoremap <Tab> :bnext<CR>
