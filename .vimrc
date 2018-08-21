@@ -119,9 +119,10 @@ inoremap <Down>  <NOP>
 inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
 
-" swapfiles location
-set backupdir=/tmp//
-set directory=/tmp//
+" disable vim backup (use git for christ sake)
+set nobackup
+set nowb
+set noswapfile
 
 " trailling spaces
 set noeol
