@@ -1,32 +1,36 @@
 set nocompatible " be iMproved, required
-filetype off " required
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'airblade/vim-gitgutter'
-Plugin 'chriskempson/base16-vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'ervandew/supertab'
-Plugin 'jiangmiao/auto-pairs'
-" Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'w0rp/ale'
-" Plugin 'Xuyuanp/nerdtree-git-plugin'
-" Plugin 'docteurklein/php-getter-setter.vim'
-" Plugin 'ryanoasis/vim-devicons'
-" Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'tpope/vim-abolish' " still studying if it's worth my attention
-call vundle#end()            " required
+call plug#begin()
+Plug 'airblade/vim-gitgutter'
+Plug 'chriskempson/base16-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
+" Plug 'ervandew/supertab'
+Plug 'jiangmiao/auto-pairs'
+" Plug 'ludovicchabant/vim-gutentags'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'VundleVim/Vundle.vim'
+Plug 'w0rp/ale'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'docteurklein/php-getter-setter.vim', { 'for' : 'php' }
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tpope/vim-abolish' " still studying if it's worth my attention
+call plug#end()
 
 filetype plugin indent on    " required
 set encoding=UTF-8
