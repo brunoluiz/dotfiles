@@ -8,7 +8,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'chriskempson/base16-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 " Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'scrooloose/nerdcommenter'
@@ -21,11 +21,11 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'w0rp/ale'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'docteurklein/php-getter-setter.vim'
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Plugin 'docteurklein/php-getter-setter.vim'
 " Plugin 'ryanoasis/vim-devicons'
 " Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-" Plugin 'tpope/vim-abolish' " still studying if it's worth my attention
+Plugin 'tpope/vim-abolish' " still studying if it's worth my attention
 call vundle#end()            " required
 
 filetype plugin indent on    " required
@@ -60,7 +60,7 @@ let g:NERDCompactSexyComs = 1
 " only show files that are not ignored by git
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_map = '<c-p>'
-let ctrlp_switch_buffer=0
+let ctrlp_switch_buffer=1
 
 " keyboard
 set tabstop=2
@@ -125,7 +125,7 @@ set noeol
 set mouse=a
 
 " clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " invisible chars
 set list
