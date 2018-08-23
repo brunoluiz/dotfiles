@@ -41,6 +41,9 @@ set autoread " set to auto read when a file is changed from the outside
 
 " airline
 let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline_skip_empty_sections=1
 let g:airline_powerline_fonts=0
 set laststatus=2
@@ -88,6 +91,9 @@ set anti enc=utf-8
 set autowrite "Save on buffer switch
 set lazyredraw " stop redrawing everytime vim!
 set foldcolumn=1 " add extra space to number column
+syntax sync minlines=256
+set synmaxcol=300
+set re=1
 
 " keyboard general mappings
 :nnoremap <Tab> :bnext<CR>
@@ -143,6 +149,7 @@ set listchars=tab:▸\ ,eol:¬,trail:·,space:·
 " enable omnifunction
 set omnifunc=syntaxcomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
+set completeopt-=preview
 
 " syntax
 syntax on
@@ -160,4 +167,3 @@ set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 set antialias
 set guioptions=
 set visualbell
-
