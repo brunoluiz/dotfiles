@@ -8,28 +8,29 @@ endif
 
 " set the runtime path to include Vundle and initialize
 call plug#begin()
-Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'ervandew/supertab'
-Plug 'jiangmiao/auto-pairs'
-" Plug 'ludovicchabant/vim-gutentags'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
+Plug 'chriskempson/base16-vim' " base16 themes
+Plug 'airblade/vim-gitgutter' " git marker for modified lines
+Plug 'tpope/vim-fugitive' " git commands inside vim
+Plug 'ervandew/supertab' " better auto-complete
+Plug 'jiangmiao/auto-pairs' " auto pair chars such as ''{}...
+Plug 'scrooloose/nerdcommenter' " code commenter
+Plug 'sheerun/vim-polyglot' " multiple language syntax support
+Plug 'tpope/vim-repeat' " enable macro to repeat plugins commands
+Plug 'tpope/vim-surround' " enable to surround strings vim determined chars
+Plug 'editorconfig/editorconfig-vim' " editorconfig loader
+Plug 'w0rp/ale' " lint engine
+Plug 'junegunn/goyo.vim' " distracion free mode
+Plug 'ctrlpvim/ctrlp.vim' " same as vscode ctrl+p
+Plug 'vim-airline/vim-airline' " great status line (together with tabline support)
 Plug 'vim-airline/vim-airline-themes'
-Plug 'VundleVim/Vundle.vim'
-Plug 'w0rp/ale'
+Plug 'scrooloose/nerdtree' " file tree / explorer
+Plug 'tpope/vim-abolish' " better search replace with :%S (eg.: get/Get => Getx)
+" Plug 'ludovicchabant/vim-gutentags'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'ryanoasis/vim-devicons'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'tpope/vim-abolish' " still studying if it's worth my attention
-Plug 'junegunn/goyo.vim'
+
+" lazy load (language specific)
 Plug 'docteurklein/php-getter-setter.vim', { 'for' : 'php' }
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 call plug#end()
@@ -40,7 +41,7 @@ set ffs=unix,dos,mac " use Unix as the standard file type
 set autoread " set to auto read when a file is changed from the outside
 
 " airline
-let g:airline#extensions#tabline#enabled=0
+let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ''
@@ -160,7 +161,13 @@ let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 " autocmd! BufWritePost * Neomake " lint on save
 
 " ale (replace neomake)
-let g:ale_linters = { 'javascript': ['eslint'] } " select js linters
+" - disable golang linting because of vim-go package
+let g:ale_linters = {
+    \ 'javascript': ['eslint'],
+    \ 'go': []
+    \ }
+" let g:syntastic_ignore_files = ['.*\.go']
+let g:go_fmt_fail_silently = 1
 
 " gui
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
