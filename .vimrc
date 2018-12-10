@@ -75,8 +75,8 @@ let ctrlp_switch_buffer=1
 
 " keyboard
 set tabstop=2
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set expandtab " convert tabs to spaces
 set backspace=2 " allows the same system backspace behavior
 
@@ -163,10 +163,18 @@ let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 " ale (replace neomake)
 " - disable golang linting because of vim-go package
 let g:ale_linters = {
-    \ 'javascript': ['eslint'],
+    \ 'javascript': ['prettier'],
     \ 'go': []
     \ }
-" let g:syntastic_ignore_files = ['.*\.go']
+let g:ale_linters_explicit = 1
+let g:ale_fixers = {
+    \ 'javascript': ['prettier', 'eslint'],
+    \ 'go': []
+    \ }
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
+
+let g:ale_completion_enabled = 1
 let g:go_fmt_fail_silently = 1
 
 " gui
