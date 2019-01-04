@@ -16,8 +16,8 @@ antigen bundle git-extras
 antigen bundle common-aliases
 antigen bundle colored-man-pages
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
+# antigen bundle zsh-users/zsh-autosuggestions
 antigen theme robbyrussell
 
 antigen apply
@@ -59,7 +59,7 @@ d_base64 () {
 
 # Encode base64
 e_base64 () {
-  echo "$1" | base64 ;
+  echo -n "$1" | base64 ;
 }
 
 # Load specifics for the machine
