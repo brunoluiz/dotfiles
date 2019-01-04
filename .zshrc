@@ -91,8 +91,32 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-source $HOME/.zshrc.local
+confirm() {
+  echo -n "Do you want to run $*? [N/yes] "
+  read REPLY
 
-decode_base64 () {
-  echo "$1" | base64 --decode ; echo
+  # if test "$REPLY" = "y" -o "$REPLY" = "Y"; then
+  if test "$REPLY" = "yes"; then
+    echo -n "Countdown for execution: "
+    echo -n "3..."
+    sleep 1s
+    echo -n "2..."
+    sleep 1s
+    echo "1..."
+    sleep 1s
+
+    "$@"
+  else
+      echo "Cancelled by user"
+  fi
 }
+
+d_base64 () {
+  echo "$1" | base64 --decode ;
+}
+
+e_base64 () {
+  echo "$1" | base64 ;
+}
+
+source $HOME/.zshrc.local
