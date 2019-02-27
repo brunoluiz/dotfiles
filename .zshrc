@@ -33,19 +33,11 @@ export PATH=$PATH:$GOPATH/bin
 
 # Confirm command to be executed
 confirm() {
-  echo -n "Do you want to run $*? [N/yes] "
+  echo -n "\e[33mDo you want to run $*? [N/yes] \e[m"
   read REPLY
 
   # if test "$REPLY" = "y" -o "$REPLY" = "Y"; then
   if test "$REPLY" = "yes"; then
-    echo -n "Countdown for execution: "
-    echo -n "3..."
-    sleep 1s
-    echo -n "2..."
-    sleep 1s
-    echo "1..."
-    sleep 1s
-
     "$@"
   else
       echo "Cancelled by user"

@@ -32,7 +32,7 @@ Plug 'tpope/vim-abolish' " better search replace with :%S (eg.: get/Get => Getx)
 
 " lazy load (language specific)
 Plug 'docteurklein/php-getter-setter.vim', { 'for' : 'php' }
-Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 filetype plugin indent on    " required
@@ -149,8 +149,8 @@ set list
 set listchars=tab:▸\ ,eol:¬,trail:·,space:·
 
 " enable omnifunction
-set omnifunc=syntaxcomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
+" set omnifunc=syntaxcomplete#Complete
+" let g:SuperTabDefaultCompletionType = "context"
 set completeopt-=preview
 
 " syntax
@@ -163,15 +163,7 @@ let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 
 " ale (replace neomake)
 " - disable golang linting because of vim-go package
-let g:ale_linters = {
-    \ 'javascript': ['prettier'],
-    \ 'go': []
-    \ }
-let g:ale_linters_explicit = 1
-let g:ale_fixers = {
-    \ 'javascript': ['prettier', 'eslint'],
-    \ 'go': []
-    \ }
+let g:ale_fixers = {'javascript': ['prettier'], 'typescript': ['prettier']}
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 
