@@ -164,6 +164,7 @@ let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 " ale (replace neomake)
 " - disable golang linting because of vim-go package
 let g:ale_fixers = {'javascript': ['prettier'], 'typescript': ['prettier']}
+" let g:ale_linters = {'javascript': ['standard'], 'typescript': ['prettier']}
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 
