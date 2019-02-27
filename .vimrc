@@ -96,6 +96,7 @@ set foldcolumn=1 " add extra space to number column
 syntax sync minlines=256
 set synmaxcol=300
 set re=1
+set wrap linebreak nolist
 
 " keyboard general mappings
 :nnoremap <Tab> :bnext<CR>
