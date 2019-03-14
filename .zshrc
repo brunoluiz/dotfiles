@@ -15,6 +15,8 @@ antigen bundle jsontools
 antigen bundle git-extras
 antigen bundle common-aliases
 antigen bundle colored-man-pages
+antigen bundle kubectl
+# antigen bundle kube-ps1
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 # antigen bundle zsh-users/zsh-autosuggestions
