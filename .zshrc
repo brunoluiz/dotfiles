@@ -56,5 +56,10 @@ e_base64 () {
   echo -n "$1" | base64 ;
 }
 
+notes () {
+  cd ~/Dropbox/notes
+  vim
+}
+
 # Load specifics for the machine
 source $HOME/.zshrc.local
