@@ -30,6 +30,7 @@ export BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export EDITOR=vim
 
 # Useful functions
 
@@ -47,12 +48,12 @@ confirm() {
 }
 
 # Decode base64
-d_base64 () {
+dbase64 () {
   echo "$1" | base64 --decode ;
 }
 
 # Encode base64
-e_base64 () {
+ebase64 () {
   echo -n "$1" | base64 ;
 }
 
