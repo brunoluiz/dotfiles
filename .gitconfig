@@ -1,0 +1,14 @@
+[push]
+  default = simple
+  followTags = true # always push the tags (usually it is done manually through --follow-tags)
+[user]
+  name = Bruno Luiz Silva
+  email = contact@brunoluiz.net
+[core]
+  editor = /usr/bin/vim # best editor ever
+[alias]
+  undo = reset --soft HEAD^ # alias to undo my shit
+[merge]
+  ff = only # i shouldn't be using merge, but when i do... fast-forward only!
+[status]
+  showUntrackedFiles = all # do not hide anything from me git

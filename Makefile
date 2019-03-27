@@ -4,6 +4,7 @@ backup:
 	@mv ~/.zshrc ~/.zshrc.conf.bak
 	@mv ~/.editorconfig ~/.editorconfig.bak
 	@mv ~/.npmrc ~/.npmrc.bak
+	@mv ~/.gitconfig ~/.gitconfig.bak
 
 install: backup
 	@echo '🚦 Installing configs...'
@@ -12,6 +13,7 @@ install: backup
 	@cp ./.zshrc ~/.zshrc
 	@cp ./.editorconfig ~/.editorconfig
 	@cp ./.npmrc ~/.npmrc
+	@cp ./.gitconfig ~/.gitconfig
 	@echo '❗️ Installed! Special requirements:'
 	@echo '- Tmux: use prefix + I to install plugins'
 	@echo '- Vim: use :PlugInstall to install plugins'
