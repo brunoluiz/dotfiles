@@ -17,3 +17,13 @@ install: backup
 	@echo '❗️ Installed! Special requirements:'
 	@echo '- Tmux: use prefix + I to install plugins'
 	@echo '- Vim: use :PlugInstall to install plugins'
+
+install-lean:
+	@echo '🚦 Installing configs...'
+	@cp ./.vimrc ~/.vimrc
+	@cp ./.tmux.conf ~/.tmux.conf
+	@cp ./.zshrc ~/.zshrc
+	@cp ./.editorconfig ~/.editorconfig
+	@echo '❗️ Installed! Special requirements:'
+	@echo '- Tmux: use prefix + I to install plugins'
+	@echo '- Vim: use :PlugInstall to install plugins'
