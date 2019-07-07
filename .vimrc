@@ -25,13 +25,9 @@ Plug 'vim-airline/vim-airline' " great status line (together with tabline suppor
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree' " file tree / explorer
 Plug 'tpope/vim-abolish' " better search replace with :%S (eg.: get/Get => Getx)
-" Plug 'ludovicchabant/vim-gutentags'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'jparise/vim-graphql'
 
 " lazy load (language specific)
-Plug 'docteurklein/php-getter-setter.vim', { 'for' : 'php' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
