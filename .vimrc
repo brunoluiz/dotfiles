@@ -151,26 +151,27 @@ set listchars=tab:▸\ ,eol:¬,trail:·,space:·
 
 " enable omnifunction
 " set omnifunc=syntaxcomplete#Complete
-" let g:SuperTabDefaultCompletionType = "context"
-set completeopt-=preview
+set omnifunc=ale#completion#OmniFunc
+let g:SuperTabDefaultCompletionType = "context"
+" set completeopt=menu,noinsert,noselect
+" set completeopt-=preview
 
 " syntax
 syntax on
 let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 
-" neomake
-" let g:neomake_javascript_enabled_makers = ['eslint'] " select js linters
-" autocmd! BufWritePost * Neomake " lint on save
-
-" ale (replace neomake)
+" ale
 " - disable golang linting because of vim-go package
-let g:ale_fixers = {'javascript': ['prettier'], 'typescript': ['prettier']}
-" let g:ale_linters = {'javascript': ['standard'], 'typescript': ['prettier']}
++let g:ale_fixers = {'javascript': ['prettier'], 'typescript': ['prettier'], 'go': ['goimports']}
+let g:ale_linters = {'go': ['golangci-lint', 'gopls']}
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_completion_enabled=1
 
-let g:ale_completion_enabled = 1
-let g:go_fmt_fail_silently = 1
+" vim-go
+let g:go_fmt_fail_silently=1
+let g:go_fmt_autosave=1
+let g:go_fmt_command='goimports'
 
 " gui
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
