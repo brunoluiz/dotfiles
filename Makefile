@@ -6,7 +6,7 @@ backup:
 	@mv ~/.npmrc ~/.npmrc.bak
 	@mv ~/.gitconfig ~/.gitconfig.bak
 
-install: backup
+install-complete: backup
 	@echo '🚦 Installing configs...'
 	@cp ./.vimrc ~/.vimrc
 	@cp ./.tmux.conf ~/.tmux.conf
@@ -18,7 +18,7 @@ install: backup
 	@echo '- Tmux: use prefix + I to install plugins'
 	@echo '- Vim: use :PlugInstall to install plugins'
 
-install-lean:
+install: backup
 	@echo '🚦 Installing configs...'
 	@cp ./.vimrc ~/.vimrc
 	@cp ./.tmux.conf ~/.tmux.conf
