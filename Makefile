@@ -1,10 +1,10 @@
 backup:
-	@mv ~/.vimrc ~/.vimrc.bak
-	@mv ~/.tmux.conf ~/.tmux.conf.bak
-	@mv ~/.zshrc ~/.zshrc.conf.bak
-	@mv ~/.editorconfig ~/.editorconfig.bak
-	@mv ~/.npmrc ~/.npmrc.bak
-	@mv ~/.gitconfig ~/.gitconfig.bak
+	-@cp ~/.vimrc ~/.vimrc.bak
+	-@cp ~/.tmux.conf ~/.tmux.conf.bak
+	-@cp ~/.zshrc ~/.zshrc.conf.bak
+	-@cp ~/.editorconfig ~/.editorconfig.bak
+	-@cp ~/.npmrc ~/.npmrc.bak
+	-@cp ~/.gitconfig ~/.gitconfig.bak
 
 install-complete: backup
 	@echo '🚦 Installing configs...'
@@ -20,10 +20,10 @@ install-complete: backup
 
 install: backup
 	@echo '🚦 Installing configs...'
-	@cp ./.vimrc ~/.vimrc
-	@cp ./.tmux.conf ~/.tmux.conf
-	@cp ./.zshrc ~/.zshrc
-	@cp ./.editorconfig ~/.editorconfig
+	-@cp ./.vimrc ~/.vimrc
+	-@cp ./.tmux.conf ~/.tmux.conf
+	-@cp ./.zshrc ~/.zshrc
+	-@cp ./.editorconfig ~/.editorconfig
 	@echo '❗️ Installed! Special requirements:'
 	@echo '- Tmux: use prefix + I to install plugins'
 	@echo '- Vim: use :PlugInstall to install plugins'
