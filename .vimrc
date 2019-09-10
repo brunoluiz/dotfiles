@@ -146,11 +146,9 @@ set list
 set listchars=tab:▸\ ,eol:¬,trail:·,space:·
 
 " enable omnifunction
-" set omnifunc=syntaxcomplete#Complete
-set omnifunc=ale#completion#OmniFunc
-let g:SuperTabDefaultCompletionType = "context"
-" set completeopt=menu,noinsert,noselect
-" set completeopt-=preview
+" set omnifunc=ale#completion#OmniFunc
+" let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menu,menuone,preview,noselect,noinsert
 
 " syntax
 syntax on
@@ -159,14 +157,14 @@ let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 " ale
 " - disable golang linting because of vim-go package
 let g:ale_fixers = {'javascript': ['prettier'], 'typescript': ['prettier'], 'go': ['goimports']}
-let g:ale_linters = {'go': ['golangci-lint', 'gopls']}
+let g:ale_linters = {'go': ['golangci-lint', 'gopls'], 'typescript':['eslint']}
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled=1
 
 " vim-go
 let g:go_fmt_fail_silently=1
-let g:go_fmt_autosave=1
+let g:go_fmt_autosave=0
 let g:go_fmt_command='goimports'
 
 " gui
