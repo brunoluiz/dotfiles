@@ -26,6 +26,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree' " file tree / explorer
 Plug 'tpope/vim-abolish' " better search replace with :%S (eg.: get/Get => Getx)
 Plug 'jparise/vim-graphql'
+Plug 'mileszs/ack.vim'
 
 " lazy load (language specific)
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -107,7 +108,7 @@ set smartcase " ignore case if search pattern is all lowercase
 " folding
 set foldenable
 set foldmethod=indent
-set foldlevelstart=10
+set foldlevelstart=10000
 
 " gui vim
 if filereadable(expand("~/.vimrc_background"))
@@ -134,6 +135,7 @@ set noswapfile
 
 " trailling spaces
 set noeol
+" set binary
 
 " mouse enable
 set mouse=a
@@ -172,3 +174,6 @@ set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 set antialias
 set guioptions=
 set visualbell
+
+" search
+let g:ackprg = 'ag --nogroup --nocolor --column'
