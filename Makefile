@@ -25,7 +25,7 @@ install: backup
 	-@cp ./.zshrc ~/.zshrc
 	-@cp ./.editorconfig ~/.editorconfig
 	-@cp ./.gitconfig ~/.gitconfig
-	brew install the_silver_searcher
+	@brew install the_silver_searcher
 	@echo '❗️ Installed! Special requirements:'
 	@echo '- Tmux: use prefix + I to install plugins'
 	@echo '- Vim: use :PlugInstall to install plugins'
