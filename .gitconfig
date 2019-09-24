@@ -8,7 +8,11 @@
   editor = /usr/bin/vim # best editor ever
 [alias]
   undo = reset --soft HEAD^ # alias to undo my shit
+  changelog = log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  changelog-full = log --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [merge]
   ff = only # i shouldn't be using merge, but when i do... fast-forward only!
 [status]
   showUntrackedFiles = all # do not hide anything from me git
+[include]
+  path = .gitconfig.local
