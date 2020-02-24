@@ -79,6 +79,7 @@ safe_kubectlapply_kustomize() {
 
 export DEFAULT_USER="$(whoami)"
 export BASE16_SHELL=$HOME/.config/base16-shell/
+[ ! -f "$BASE16_SHELL/profile_helper.sh" ] && git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
