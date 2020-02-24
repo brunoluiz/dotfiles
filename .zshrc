@@ -1,38 +1,30 @@
+### Antigen and plugins
+
 # Install antigen if not installed
 if [ ! -f "$HOME/.antigen.zsh" ]; then
   curl -L git.io/antigen > $HOME/.antigen.zsh
 fi
 
-# Initialize antigen and zsh stuff
 source $HOME/.antigen.zsh
 CASE_SENSITIVE="true"
 
+# Set-up pugins
 antigen use oh-my-zsh
 antigen bundle git
-antigen bundle screen
 antigen bundle osx
-antigen bundle jsontools
 antigen bundle git-extras
 antigen bundle common-aliases
-antigen bundle colored-man-pages
 antigen bundle kubectl
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
+antigen bundle lukechilds/zsh-nvm
+antigen theme robbyrussell
+# antigen bundle zsh-users/zsh-completions
+# antigen bundle colored-man-pages
+# antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle kube-ps1
 # antigen bundle zsh-users/zsh-autosuggestions
-antigen theme robbyrussell
-
 antigen apply
 
-# Default exports
-export DEFAULT_USER="$(whoami)"
-export BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export EDITOR=vim
-
-# Useful functions
+### Useful functions
 
 # Confirm command to be executed
 confirm() {
@@ -62,5 +54,45 @@ notes () {
   vim
 }
 
-# Load specifics for the machine
+# kubectl tricks
+safe_kubectlapply() {
+  context=$(kubectl config current-context)
+  echo "Applying to $context"
+  if [[ $@ == *$context* ]] ; then
+    confirm kubectl apply -f "$@"
+  else
+    echo "\e[31mMismatch on context: $@ => $context\e[m"
+  fi
+}
+
+safe_kubectlapply_kustomize() {
+  context=$(kubectl config current-context)
+  echo "Applying to $context"
+  if [[ $@ == *$context* ]] ; then
+    confirm kubectl apply -k "$@"
+  else
+    echo "\e[31mMismatch on context: $@ => $context\e[m"
+  fi
+}
+
+### Variables
+
+export DEFAULT_USER="$(whoami)"
+export BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export EDITOR=vim
+export TERM=xterm-256color
+export CIRCLE_SHA1=bsilva-local
+
+### Aliases
+
+alias s='stern'
+alias kns='kubens'
+alias kcx='kubectx'
+alias kaf='safe_kubectlapply'
+alias kak='safe_kubectlapply_kustomize'
+
+### Local specifics
 source $HOME/.zshrc.local
