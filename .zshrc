@@ -1,5 +1,3 @@
-### Antigen and plugins
-
 # Install antigen if not installed
 if [ ! -f "$HOME/.antigen.zsh" ]; then
   curl -L git.io/antigen > $HOME/.antigen.zsh
@@ -7,21 +5,16 @@ fi
 
 source $HOME/.antigen.zsh
 CASE_SENSITIVE="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Set-up pugins
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle osx
-antigen bundle git-extras
 antigen bundle common-aliases
 antigen bundle kubectl
 antigen bundle lukechilds/zsh-nvm
 antigen theme robbyrussell
-# antigen bundle zsh-users/zsh-completions
-# antigen bundle colored-man-pages
-# antigen bundle zsh-users/zsh-syntax-highlighting
-# antigen bundle kube-ps1
-# antigen bundle zsh-users/zsh-autosuggestions
 antigen apply
 
 ### Useful functions
@@ -37,16 +30,6 @@ confirm() {
   else
       echo "Cancelled by user"
   fi
-}
-
-# Decode base64
-dbase64 () {
-  echo "$1" | base64 --decode ;
-}
-
-# Encode base64
-ebase64 () {
-  echo -n "$1" | base64 ;
 }
 
 notes () {
@@ -94,6 +77,10 @@ alias kns='kubens'
 alias kcx='kubectx'
 alias kaf='safe_kubectlapply'
 alias kak='safe_kubectlapply_kustomize'
+alias q='q -d ,'
+alias vim='/usr/local/bin/vim'
 
 ### Local specifics
 source $HOME/.zshrc.local
+
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
