@@ -9,11 +9,8 @@ endif
 " set the runtime path to include Vundle and initialize
 call plug#begin()
 Plug 'chriskempson/base16-vim' " base16 themes
-Plug 'airblade/vim-gitgutter' " git marker for modified lines
 Plug 'tpope/vim-fugitive' " git commands inside vim
-Plug 'ervandew/supertab' " better auto-complete
 Plug 'jiangmiao/auto-pairs' " auto pair chars such as ''{}...
-Plug 'scrooloose/nerdcommenter' " code commenter
 Plug 'sheerun/vim-polyglot' " multiple language syntax support
 Plug 'tpope/vim-repeat' " enable macro to repeat plugins commands
 Plug 'tpope/vim-surround' " enable to surround strings vim determined chars
@@ -24,15 +21,16 @@ Plug 'ctrlpvim/ctrlp.vim' " same as vscode ctrl+p
 Plug 'vim-airline/vim-airline' " great status line (together with tabline support)
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree' " file tree / explorer
+Plug 'scrooloose/nerdcommenter' " code commenter
 Plug 'tpope/vim-abolish' " better search replace with :%S (eg.: get/Get => Getx)
-Plug 'jparise/vim-graphql'
-Plug 'mileszs/ack.vim'
-
-" lazy load (language specific)
+Plug 'mileszs/ack.vim' " search
+Plug 'airblade/vim-gitgutter' " git marker for modified lines
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'govim/govim'
+" Plug 'jparise/vim-graphql' " graphql highlight
 call plug#end()
 
-filetype plugin indent on    " required
+filetype plugin indent on " required
 set encoding=UTF-8
 set ffs=unix,dos,mac " use Unix as the standard file type
 set autoread " set to auto read when a file is changed from the outside
@@ -92,7 +90,7 @@ set lazyredraw " stop redrawing everytime vim!
 set foldcolumn=1 " add extra space to number column
 syntax sync minlines=256
 set synmaxcol=300
-set re=1
+" set re=1
 set wrap linebreak nolist
 
 " keyboard general mappings
@@ -141,15 +139,20 @@ set noeol
 set mouse=a
 
 " clipboard
-set clipboard=unnamed
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
 
 " invisible chars
 set list
 set listchars=tab:▸\ ,eol:¬,trail:·,space:·
 
 " enable omnifunction
-" set omnifunc=ale#completion#OmniFunc
-" let g:SuperTabDefaultCompletionType = "context"
+set omnifunc=ale#completion#OmniFunc
 set completeopt=menu,menuone,preview,noselect,noinsert
 
 " syntax
@@ -157,17 +160,24 @@ syntax on
 let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 
 " ale
-" - disable golang linting because of vim-go package
-let g:ale_fixers = {'javascript': ['prettier'], 'typescript': ['prettier'], 'go': ['goimports']}
-let g:ale_linters = {'go': ['golangci-lint', 'gopls'], 'typescript':['eslint']}
+let g:ale_fixers = {
+      \'javascript': ['prettier'],
+      \'typescript': ['prettier'],
+      \ 'terraform': ['terraform'],
+      \'go': []
+      \}
+
+let g:ale_linters = {
+      \ 'typescript': ['eslint'],
+      \ 'terraform': ['terraform'],
+      \ 'graphql': ['gqlint'],
+      \ 'yaml': ['yamllint'],
+      \ 'go': ['golangci-lint', 'gopls']
+      \}
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_completion_enabled=1
-
-" vim-go
-let g:go_fmt_fail_silently=1
-let g:go_fmt_autosave=0
-let g:go_fmt_command='goimports'
+let g:ale_completion_enabled=0
+let g:ale_pattern_options = {'partner-event-booking-ui': {'ale_fixers': []}, 'partner-email': {'ale_fixers': []} }
 
 " gui
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
@@ -175,5 +185,19 @@ set antialias
 set guioptions=
 set visualbell
 
-" search
+" Ack search
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+let g:go_fmt_autosave=1
+let g:go_fmt_command='goimports'
+
+" govim
+" set signcolumn=number
+" set balloondelay=250
+" set updatetime=500
+" set ttymouse=sgr
+"
+" if has("patch-8.1.1904")
+  " set completeopt+=popup
+  " set completepopup=align:menu,border:off,highlight:Pmenu
+" endif
