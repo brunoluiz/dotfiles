@@ -5,7 +5,7 @@
   name = Bruno Luiz Silva
   email = contact@brunoluiz.net
 [core]
-  editor = /usr/bin/vim # best editor ever
+  editor = vim # best editor ever
 [alias]
   undo = reset --soft HEAD^ # alias to undo my shit
   changelog = log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -16,3 +16,11 @@
   showUntrackedFiles = all # do not hide anything from me git
 [include]
   path = .gitconfig.local
+[filter "strongbox"]
+	clean = strongbox -clean %f
+	smudge = strongbox -smudge %f
+	required = true
+[diff "strongbox"]
+	textconv = strongbox -diff
+[url "git@github.com:"]
+	insteadOf = https://github.com/
