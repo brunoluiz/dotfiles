@@ -1,21 +1,21 @@
 [push]
-  default = simple
-  followTags = true # always push the tags (usually it is done manually through --follow-tags)
+	default = current
+	followTags = true # always push the tags (usually it is done manually through --follow-tags)
 [user]
-  name = Bruno Luiz Silva
-  email = contact@brunoluiz.net
+	name = Bruno Luiz Silva
+	email = contact@brunoluiz.net
 [core]
-  editor = vim # best editor ever
+	editor = vim
+	attributesfile = ~/.gitattributes
+	excludesfile = ~/.gitignore_global
 [alias]
-  undo = reset --soft HEAD^ # alias to undo my shit
-  changelog = log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  changelog-full = log --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	undo = reset --soft HEAD^ # alias to undo my shit
+	changelog = log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [merge]
-  ff = only # i shouldn't be using merge, but when i do... fast-forward only!
 [status]
-  showUntrackedFiles = all # do not hide anything from me git
+	showUntrackedFiles = all # do not hide anything from me git
 [include]
-  path = .gitconfig.local
+	path = .gitconfig.local
 [filter "strongbox"]
 	clean = strongbox -clean %f
 	smudge = strongbox -smudge %f
@@ -24,3 +24,5 @@
 	textconv = strongbox -diff
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[pull]
+	default = current
