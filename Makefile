@@ -5,6 +5,7 @@ backup:
 	-@cp ~/.editorconfig ~/.editorconfig.bak
 	-@cp ~/.npmrc ~/.npmrc.bak
 	-@cp ~/.gitconfig ~/.gitconfig.bak
+	-@cp ~/.gitattributes ~/.gitattributes.bak
 
 install-complete: backup
 	@echo '🚦 Installing configs...'
@@ -14,6 +15,7 @@ install-complete: backup
 	@cp ./.editorconfig ~/.editorconfig
 	@cp ./.npmrc ~/.npmrc
 	@cp ./.gitconfig ~/.gitconfig
+	@cp ./.gitattributes ~/.gitattributes
 	@echo '❗️ Installed! Special requirements:'
 	@echo '- Tmux: use prefix + I to install plugins'
 	@echo '- Vim: use :PlugInstall to install plugins'
