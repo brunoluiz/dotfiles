@@ -26,8 +26,10 @@ Plug 'tpope/vim-abolish' " better search replace with :%S (eg.: get/Get => Getx)
 Plug 'mileszs/ack.vim' " search
 Plug 'airblade/vim-gitgutter' " git marker for modified lines
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'govim/govim'
+" Plug 'govim/govim'
 " Plug 'jparise/vim-graphql' " graphql highlight
+Plug 'SirVer/ultisnips' " Track the engine.
+Plug 'honza/vim-snippets' " Snippets are separated from the engine
 call plug#end()
 
 filetype plugin indent on " required
@@ -77,7 +79,7 @@ set expandtab " convert tabs to spaces
 set backspace=2 " allows the same system backspace behavior
 
 " tweaks and visuals
-set number " show line numbers
+set number relativenumber " show relative line numbers and absolute
 set nocursorline " do not highlight actual line (performance issues)
 set showmatch " show matching items, such as [], {}...
 set wildmenu " cmd auto-completion
@@ -161,14 +163,15 @@ let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 
 " ale
 let g:ale_fixers = {
-      \'javascript': ['prettier'],
-      \'typescript': ['prettier'],
+      \ 'javascript': ['prettier'],
+      \ 'typescript': ['prettier'],
       \ 'terraform': ['terraform'],
       \'go': []
       \}
 
 let g:ale_linters = {
       \ 'typescript': ['eslint'],
+      \ 'javascript': ['eslint'],
       \ 'terraform': ['terraform'],
       \ 'graphql': ['gqlint'],
       \ 'yaml': ['yamllint'],
@@ -177,7 +180,14 @@ let g:ale_linters = {
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled=0
-let g:ale_pattern_options = {'partner-event-booking-ui': {'ale_fixers': []}, 'partner-email': {'ale_fixers': []} }
+let g:ale_set_highlights=0
+let g:ale_set_signs=1
+command! ALEDisableFixers       let g:ale_fix_on_save=0
+command! ALEEnableFixers        let g:ale_fix_on_save=1
+command! ALEDisableFixersBuffer let b:ale_fix_on_save=0
+command! ALEEnableFixersBuffer  let b:ale_fix_on_save=0
+command! ALEToggleFixers call functions#fckALEToggle('global')
+command! ALEToggleFixersBuffer call functions#fckALEToggle('buffer')
 
 " gui
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
@@ -190,6 +200,14 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:go_fmt_autosave=1
 let g:go_fmt_command='goimports'
+let g:go_rename_command = 'gopls'
+let g:go_auto_type_info = 1
+" let g:go_gopls_use_placeholders = 'v:ultisnips'
+" let g:go_highlight_functions = 1
+" let g:go_highlight_function_calls = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_extra_types = 1
+" let g:go_auto_sameids = 1 " highlight cursor variables
 
 " govim
 " set signcolumn=number
@@ -201,3 +219,9 @@ let g:go_fmt_command='goimports'
   " set completeopt+=popup
   " set completepopup=align:menu,border:off,highlight:Pmenu
 " endif
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
