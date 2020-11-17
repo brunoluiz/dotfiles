@@ -9,8 +9,10 @@
 	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore_global
 [alias]
-	undo = reset --soft HEAD^ # alias to undo my shit
-	changelog = log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[alias]
+	head = git rev-parse HEAD # returns head commit
+	undo = reset --soft HEAD^ # undo previous commit
+	changelog = log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit # changelog in the format: $short_commit - $message ($time) <$author>
 [merge]
 [status]
 	showUntrackedFiles = all # do not hide anything from me git
