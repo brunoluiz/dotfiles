@@ -206,6 +206,19 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:coc_global_extensions = [
+  \'coc-css',
+  \'coc-highlight',
+  \'coc-graphql',
+  \'coc-go',
+  \'coc-html',
+  \'coc-explorer',
+  \'coc-sql',
+  \'coc-json',
+  \'coc-explorer',
+  \'coc-tsserver',
+  \'coc-git'
+  \]
 " Always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved.
 if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
