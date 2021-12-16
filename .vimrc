@@ -17,16 +17,19 @@ Plug 'tpope/vim-surround' " enable to surround strings vim determined chars
 Plug 'editorconfig/editorconfig-vim' " editorconfig loader
 Plug 'w0rp/ale' " lint engine
 Plug 'junegunn/goyo.vim' " distracion free mode
-Plug 'ctrlpvim/ctrlp.vim' " same as vscode ctrl+p
 Plug 'vim-airline/vim-airline' " great status line (together with tabline support)
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree' " file tree / explorer
 Plug 'scrooloose/nerdcommenter' " code commenter
 Plug 'tpope/vim-abolish' " better search replace with :%S (eg.: get/Get => Getx)
-Plug 'mileszs/ack.vim' " search
-Plug 'airblade/vim-gitgutter' " git marker for modified lines
-Plug 'honza/vim-snippets' " Snippets are separated from the engine
+" Plug 'airblade/vim-gitgutter' " git marker for modified lines
+" Plug 'honza/vim-snippets' " Snippets are separated from the engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'bkad/CamelCaseMotion'
+Plug 'tomlion/vim-solidity'
+Plug 'tpope/vim-projectionist'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 filetype plugin indent on " required
@@ -59,12 +62,17 @@ let g:NERDSpaceDelims = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDCompactSexyComs = 1
 
-" ctrlp
-" only show files that are not ignored by git
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_use_caching = 0
-let ctrlp_switch_buffer=1
+" fzf
+nmap <C-P> :FZF<CR>
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+let $FZF_DEFAULT_COMMAND = 'ag -g ""' " filters out .gitignore files
 
 " keyboard
 set tabstop=2
@@ -89,6 +97,7 @@ syntax sync minlines=256
 set synmaxcol=300
 " set re=1
 set wrap linebreak nolist
+set signcolumn=yes " gutter and line coutns don't overlap
 
 " keyboard general mappings
 :nnoremap <Tab> :bnext<CR>
@@ -160,7 +169,8 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'typescript': ['prettier'],
       \ 'terraform': ['terraform'],
-      \'go': ['goimports']
+      \'go': ['goimports'],
+      \'solidity': ['remove_trailing_lines', 'trim_whitespace']
       \}
 
 let g:ale_linters = {
@@ -169,6 +179,7 @@ let g:ale_linters = {
       \ 'terraform': ['terraform'],
       \ 'graphql': ['gqlint'],
       \ 'yaml': ['yamllint'],
+      \ 'solidity': ['solc', 'solhint'],
       \ 'go': ['golangci-lint', 'gopls']
       \}
 let g:ale_fix_on_save = 1
@@ -199,6 +210,29 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
+" CamelCaseMotion
+
+let g:camelcasemotion_key = '<leader>'
+
+" vim-projectionist
+
+augroup projection_extension
+  let args = {}
+  let args['*.go'] =            { 'alternate': '{}_test.go' }
+  let args['*_test.go'] =       { 'alternate': '{}.go' }
+  let args['*.cpp'] =           { 'alternate': '{}.h' }
+  let args['*.h'] =             { 'alternate': '{}.cpp' }
+  let args['src/*.js'] =        { 'alternate': ['tests/spec/{}.spec.js', 'tests/{}.spec.js'] }
+  let args['tests/spec/*.spec.js'] = { 'alternate': ['{}.js', 'src/{}.js'] }
+  let args['tests/*.spec.js'] = { 'alternate': ['{}.js', 'src/{}.js'] }
+  let args['dev-aws/*'] =       { 'alternate': 'prod-aws/{}' }
+  let args['dev-gcp/*'] =       { 'alternate': 'prod-gcp/{}' }
+  let args['dev-merit/*'] =     { 'alternate': 'prod-aws/{}' }
+  let args['*.up.sql'] =        { 'alternate': '{}.down.sql' }
+  let args['*.down.sql'] =      { 'alternate': '{}.up.sql' }
+  autocmd User ProjectionistDetect call projectionist#append(getcwd(), args)
+augroup END
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Beware, coc.nvim configs below!!
@@ -209,15 +243,10 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:coc_global_extensions = [
   \'coc-css',
   \'coc-highlight',
-  \'coc-graphql',
   \'coc-go',
   \'coc-html',
   \'coc-explorer',
-  \'coc-sql',
-  \'coc-json',
-  \'coc-explorer',
   \'coc-tsserver',
-  \'coc-git'
   \]
 " Always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved.
 if has("patch-8.1.1564")

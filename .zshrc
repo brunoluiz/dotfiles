@@ -52,7 +52,9 @@ safe_kubectlapply_kustomize() {
   context=$(kubectl config current-context)
   echo "Applying to $context"
   if [[ $@ == *$context* ]] ; then
-    confirm kubectl apply -k "$@"
+    confirm echo "start kustomize build"
+    kustomize build $@ | kubectl apply -f -
+    # confirm kubectl apply -k "$@"
   else
     echo "\e[31mMismatch on context: $@ => $context\e[m"
   fi
@@ -65,10 +67,11 @@ export BASE16_SHELL=$HOME/.config/base16-shell/
 [ ! -f "$BASE16_SHELL/profile_helper.sh" ] && git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:$HOME/.composer/vendor/bin
 export EDITOR=vim
 export TERM=xterm-256color
 export CIRCLE_SHA1=bsilva-local
+export GPG_TTY=$(tty)
 
 ### Aliases
 
@@ -77,8 +80,9 @@ alias kns='kubens'
 alias kcx='kubectx'
 alias kaf='safe_kubectlapply'
 alias kak='safe_kubectlapply_kustomize'
-alias q='q -d ,'
 alias vim='/usr/local/bin/vim'
+alias aws-cli='docker run --rm -it -v ~/.aws:/root/.aws -e AWS_PROFILE=dev-customer-event-emitter amazon/aws-cli:2.0.30'
+alias bs='browser-sync start --server --files "*.js, *.html, *.css"'
 
 ### Local specifics
 source $HOME/.zshrc.local
