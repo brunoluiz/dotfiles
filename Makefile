@@ -27,6 +27,7 @@ install: backup
 	-@cp ./.zshrc ~/.zshrc
 	-@cp ./.editorconfig ~/.editorconfig
 	-@cp ./.gitconfig ~/.gitconfig
+	-@cp ./kitty.conf ~/.config/kitty/kitty.conf
 	@brew install the_silver_searcher
 	@echo '❗️ Installed! Special requirements:'
 	@echo '- Tmux: use prefix + I to install plugins'
