@@ -23,13 +23,14 @@ Plug 'scrooloose/nerdtree' " file tree / explorer
 Plug 'scrooloose/nerdcommenter' " code commenter
 Plug 'tpope/vim-abolish' " better search replace with :%S (eg.: get/Get => Getx)
 " Plug 'airblade/vim-gitgutter' " git marker for modified lines
-" Plug 'honza/vim-snippets' " Snippets are separated from the engine
+Plug 'honza/vim-snippets' " Snippets are separated from the engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bkad/CamelCaseMotion'
 Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-projectionist'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'pantharshit00/vim-prisma'
 call plug#end()
 
 filetype plugin indent on " required
@@ -45,6 +46,7 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline_skip_empty_sections=1
 let g:airline_powerline_fonts=0
+let g:airline#extensions#coc#enabled=1
 set laststatus=2
 
 " nerdtree
@@ -89,7 +91,7 @@ set wildmenu " cmd auto-completion
 set ruler " show line and column
 set hidden " allows buffer switching without have to save the actual
 set confirm " when leaving without save, shows a confirmation pop-up (instead of breaking)
-set anti enc=utf-8
+" set anti enc=utf-8
 set autowrite "Save on buffer switch
 set lazyredraw " stop redrawing everytime vim!
 set foldcolumn=1 " add extra space to number column
@@ -177,11 +179,12 @@ let g:ale_linters = {
       \ 'typescript': ['eslint'],
       \ 'javascript': ['eslint'],
       \ 'terraform': ['terraform'],
-      \ 'graphql': ['gqlint'],
       \ 'yaml': ['yamllint'],
+      \ 'graphql': ['gqlint'],
       \ 'solidity': ['solc', 'solhint'],
       \ 'go': ['golangci-lint', 'gopls']
       \}
+let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled=0
@@ -195,10 +198,10 @@ command! ALEToggleFixers call functions#fckALEToggle('global')
 command! ALEToggleFixersBuffer call functions#fckALEToggle('buffer')
 
 " gui
-set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-set antialias
-set guioptions=
-set visualbell
+" set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+" set antialias
+" set guioptions=
+" set visualbell
 
 " Ack search
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -240,14 +243,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_global_extensions = [
-  \'coc-css',
-  \'coc-highlight',
-  \'coc-go',
-  \'coc-html',
-  \'coc-explorer',
-  \'coc-tsserver',
-  \]
+let g:coc_global_extensions = ['coc-css', 'coc-highlight', 'coc-go', 'coc-html', 'coc-explorer', 'coc-tsserver', 'coc-git', 'coc-tailwindcss', 'coc-snippets']
 " Always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved.
 if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
@@ -330,7 +326,7 @@ xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>ra  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
