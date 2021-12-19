@@ -174,7 +174,6 @@ let g:ale_fixers = {
       \'go': ['goimports'],
       \'solidity': ['remove_trailing_lines', 'trim_whitespace']
       \}
-
 let g:ale_linters = {
       \ 'typescript': ['eslint'],
       \ 'javascript': ['eslint'],
@@ -185,17 +184,23 @@ let g:ale_linters = {
       \ 'go': ['golangci-lint', 'gopls']
       \}
 let g:ale_linters_explicit = 1
+let g:ale_disable_lsp = 1
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled=0
-let g:ale_set_highlights=0
+let g:ale_set_highlights=1
 let g:ale_set_signs=1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
 command! ALEDisableFixers       let g:ale_fix_on_save=0
 command! ALEEnableFixers        let g:ale_fix_on_save=1
 command! ALEDisableFixersBuffer let b:ale_fix_on_save=0
 command! ALEEnableFixersBuffer  let b:ale_fix_on_save=0
 command! ALEToggleFixers call functions#fckALEToggle('global')
 command! ALEToggleFixersBuffer call functions#fckALEToggle('buffer')
+highlight ALEWarning cterm=underline ctermfg=LightYellow ctermbg=Yellow
+highlight ALEError cterm=underline ctermfg=LightRed ctermbg=DarkRed
 
 " gui
 " set guifont=Source\ Code\ Pro\ for\ Powerline:h13
