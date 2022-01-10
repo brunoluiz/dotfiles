@@ -1,14 +1,10 @@
 [push]
 	default = current
 	followTags = true # always push the tags (usually it is done manually through --follow-tags)
-[user]
-	name = Bruno Luiz Silva
-	email = contact@brunoluiz.net
 [core]
 	editor = vim
 	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore_global
-[alias]
 [alias]
 	head = git rev-parse HEAD # returns head commit
 	undo = reset --soft HEAD^ # undo previous commit
@@ -16,15 +12,10 @@
 [merge]
 [status]
 	showUntrackedFiles = all # do not hide anything from me git
-[include]
-	path = .gitconfig.local
-[filter "strongbox"]
-	clean = strongbox -clean %f
-	smudge = strongbox -smudge %f
-	required = true
-[diff "strongbox"]
-	textconv = strongbox -diff
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [pull]
 	default = current
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[includeIf "gitdir:personal/"]
+	path=~/.gitconfig.personal

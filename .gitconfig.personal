@@ -1,0 +1,16 @@
+[user]
+	name = Bruno Luiz Silva
+	email = contact@brunoluiz.net
+[filter "strongbox"]
+	clean = strongbox -clean %f
+	smudge = strongbox -smudge %f
+	required = true
+[diff "strongbox"]
+	textconv = strongbox -diff
+[commit]
+	gpgsign = false
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[core]
+	sshCommand = ssh -i ~/.ssh/id_rsa
+
