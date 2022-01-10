@@ -10,7 +10,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Set-up pugins
 antigen use oh-my-zsh
 antigen bundle git
-antigen bundle osx
+antigen bundle macos
 antigen bundle common-aliases
 antigen bundle kubectl
 antigen bundle lukechilds/zsh-nvm
