@@ -1,11 +1,5 @@
-install:
-	@echo '🚦 Installing configs...'
+dotfiles:
 	-@mkdir -p ~/.config/kitty
-	-@cp ./.vimrc ~/.vimrc
-	-@cp ./.tmux.conf ~/.tmux.conf
-	-@cp ./.zshrc ~/.zshrc
-	-@cp ./.editorconfig ~/.editorconfig
-	-@cp ./.gitconfig ~/.gitconfig
-	-@cp ./.gitattributes ~/.gitattributes
+	-@cp .* ~
 	-@cp ./kitty.conf ~/.config/kitty/kitty.conf
-	@echo 'Installed!'
+	@echo 'Copied dotfiles!'
