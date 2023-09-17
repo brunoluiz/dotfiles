@@ -83,6 +83,7 @@ alias kak='safe_kubectlapply_kustomize'
 alias q='q -d ,'
 alias vim='/usr/local/bin/nvim'
 alias vi='/usr/local/bin/nvim'
+alias tmux='tmux'
 alias kubectl="kubecolor"
 
 ### Local specifics
