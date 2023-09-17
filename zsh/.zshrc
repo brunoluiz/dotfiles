@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 # Install antigen if not installed
 if [ ! -f "$HOME/.antigen.zsh" ]; then
   curl -L git.io/antigen > $HOME/.antigen.zsh
@@ -13,7 +15,6 @@ antigen bundle git
 antigen bundle macos
 antigen bundle common-aliases
 antigen bundle kubectl
-antigen bundle lukechilds/zsh-nvm
 antigen theme robbyrussell
 antigen apply
 
