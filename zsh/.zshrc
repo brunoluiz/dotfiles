@@ -70,6 +70,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 export PATH=$PATH:/usr/local/opt/asdf/libexec/asdf.sh
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH=$PATH:/Users/bruno.silva/.local/bin
 export EDITOR=nvim
 export TERM=xterm-256color # this seems to break k9s colours
 export BASH_SILENCE_DEPRECATION_WARNING=1
