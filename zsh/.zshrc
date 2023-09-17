@@ -112,3 +112,9 @@ search_and_replace() {
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
+
+dotfiles() {
+  set -e
+  cd $HOME/git/personal/dotfiles
+  git checkout $1
+}
