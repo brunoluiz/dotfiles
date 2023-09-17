@@ -1,5 +1,5 @@
 <h1 align="center">
-  `dotfiles`
+  dotfiles
 </h1>
 
 <p align="center">
