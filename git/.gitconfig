@@ -22,8 +22,5 @@
 [mergetool "vimdiff"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 
-[includeIf "gitdir:personal/**"]
-	path=~/.gitconfig.personal
-
 [include]
-	path=~/.gitconfig.local
+	path=~/.gitconfig.github.brunoluiz
