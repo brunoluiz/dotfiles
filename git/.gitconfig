@@ -23,4 +23,4 @@
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 
 [include]
-	path=~/.gitconfig.github.brunoluiz
+	path=~/.gitconfig.github.processout
