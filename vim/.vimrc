@@ -22,15 +22,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree' " file tree / explorer
 Plug 'scrooloose/nerdcommenter' " code commenter
 Plug 'tpope/vim-abolish' " better search replace with :%S (eg.: get/Get => Getx)
-" Plug 'airblade/vim-gitgutter' " git marker for modified lines
-Plug 'honza/vim-snippets' " Snippets are separated from the engine
+Plug 'airblade/vim-gitgutter' " git marker for modified lines
+" Plug 'honza/vim-snippets' " Snippets are separated from the engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bkad/CamelCaseMotion'
 Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-projectionist'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'pantharshit00/vim-prisma'
+Plug 'chrisbra/csv.vim'
+Plug 'github/copilot.vim'
+Plug 'tpope/vim-rhubarb'
 call plug#end()
 
 filetype plugin indent on " required
@@ -74,7 +76,7 @@ omap <leader><tab> <plug>(fzf-maps-o)
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
-let $FZF_DEFAULT_COMMAND = 'ag -g ""' " filters out .gitignore files
+let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden' " filters out .gitignore files
 
 " keyboard
 set tabstop=2
@@ -248,7 +250,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_global_extensions = ['coc-css', 'coc-highlight', 'coc-go', 'coc-html', 'coc-explorer', 'coc-tsserver', 'coc-git', 'coc-tailwindcss', 'coc-snippets']
+let g:coc_global_extensions = ['coc-css', 'coc-highlight', 'coc-go', 'coc-html', 'coc-explorer', 'coc-tsserver', 'coc-git', 'coc-snippets']
 " Always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved.
 if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one

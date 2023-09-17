@@ -67,9 +67,10 @@ export BASE16_SHELL=$HOME/.config/base16-shell/
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
-export EDITOR=vim
-export TERM=xterm-256color
-export CIRCLE_SHA1=bsilva-local
+export PATH=$PATH:/usr/local/opt/asdf/libexec/asdf.sh
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export EDITOR=nvim
+export TERM=xterm-256color # this seems to break k9s colours
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 ### Aliases
@@ -81,6 +82,8 @@ alias kaf='safe_kubectlapply'
 alias kak='safe_kubectlapply_kustomize'
 alias q='q -d ,'
 alias vim='/usr/local/bin/nvim'
+alias vi='/usr/local/bin/nvim'
+alias kubectl="kubecolor"
 
 ### Local specifics
 source $HOME/.zshrc.local
@@ -88,3 +91,23 @@ source $HOME/.zshrc.local
 ### kitty
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
+alias python=/usr/bin/python3
+alias gfu=git commit -m 'do' && ggp
+
+ksenv() {
+  kubectl get secret $@ -o go-template='{{range $k,$v := .data}}{{printf "%s=" $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
+}
+
+ksyaml() {
+  kubectl get secret $@ -o go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
+}
+
+. /usr/local/opt/asdf/libexec/asdf.sh
+
+search_and_replace() {
+  ag -0 -l $1 | xargs -0 sed -ri.bak -e "s/$1/$2/g"
+}
+
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
