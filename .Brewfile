@@ -1,3 +1,4 @@
+brew "stow"
 brew "go"
 brew "kubectl"
 brew "tmux"
