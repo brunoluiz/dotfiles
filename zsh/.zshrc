@@ -8,6 +8,7 @@ fi
 source $HOME/.antigen.zsh
 CASE_SENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
+BASE16_SHELL_ENABLE_VARS=1
 
 # Set-up pugins
 antigen use oh-my-zsh
@@ -15,7 +16,7 @@ antigen bundle git
 antigen bundle macos
 antigen bundle common-aliases
 antigen bundle kubectl
-antigen theme robbyrussell
+antigen theme amuse
 antigen apply
 
 ### Useful functions
@@ -87,6 +88,7 @@ alias vim='/usr/local/bin/nvim'
 alias vi='/usr/local/bin/nvim'
 alias tmux='tmux'
 alias kubectl="kubecolor"
+alias tf='terraform'
 
 ### Local specifics
 source $HOME/.zshrc.local
@@ -120,3 +122,5 @@ dotfiles() {
   cd $HOME/git/personal/dotfiles
   git checkout $1
 }
+
+PROMPT="$PROMPT"
