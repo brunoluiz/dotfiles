@@ -11,6 +11,9 @@ stow:
 	touch ~/.zshrc.local
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow zsh
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow node # Can be dangerous due to credentials
+	mkdir .ssh
+	chmod 700 ~/.ssh
+	chmod 600 ~/.ssh/*
 
 install:
 	./macos.sh
