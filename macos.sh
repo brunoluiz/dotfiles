@@ -12,6 +12,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Installs neovim with python support
 python3 -m pip install --user --upgrade pynvim
 
+# Installs all dependencies from Brewfile
+brew bundle install --file=.Brewfile
+
 # Installs krew -- kubectl plugin manager
 (
   set -x; cd "$(mktemp -d)" &&
@@ -23,5 +26,9 @@ python3 -m pip install --user --upgrade pynvim
   ./"${KREW}" install krew
 )
 
-# Installs all dependencies from Brewfile
-brew bundle install --file=~/.Brewfile
+# asdf plugins
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
+asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
+asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
+
