@@ -63,15 +63,16 @@ safe_kubectlapply_kustomize() {
 ### Variables
 
 export DEFAULT_USER="$(whoami)"
-export BASE16_SHELL=$HOME/.config/base16-shell/
+export BASE16_SHELL="$HOME/.config/base16-shell/"
 [ ! -f "$BASE16_SHELL/profile_helper.sh" ] && git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && source "$BASE16_SHELL/profile_helper.sh"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 export PATH=$PATH:/usr/local/opt/asdf/libexec/asdf.sh
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$PATH:/Users/bruno.silva/.local/bin
+export PATH=$PATH:/opt/homebrew/bin
 export EDITOR=nvim
 export TERM=xterm-256color # this seems to break k9s colours
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -84,10 +85,10 @@ alias kcx='kubectx'
 alias kaf='safe_kubectlapply'
 alias kak='safe_kubectlapply_kustomize'
 alias q='q -d ,'
-alias vim='/usr/local/bin/nvim'
-alias vi='/usr/local/bin/nvim'
+alias vim='/opt/homebrew/bin/nvim'
+alias vi='/opt/homebrew/bin/nvim'
 alias tmux='tmux'
-alias kubectl="kubecolor"
+# alias kubectl="kubecolor"
 alias tf='terraform'
 
 ### Local specifics
@@ -107,7 +108,8 @@ ksyaml() {
   kubectl get secret $@ -o go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
 }
 
-. /usr/local/opt/asdf/libexec/asdf.sh
+. "/opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash"
+. "/opt/homebrew/opt/asdf/libexec/asdf.sh"
 
 search_and_replace() {
   ag -0 -l $1 | xargs -0 sed -ri.bak -e "s/$1/$2/g"
@@ -116,11 +118,5 @@ search_and_replace() {
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
-
-dotfiles() {
-  set -e
-  cd $HOME/git/personal/dotfiles
-  git checkout $1
-}
 
 PROMPT="$PROMPT"
