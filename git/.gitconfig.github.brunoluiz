@@ -1,6 +1,7 @@
 [user]
 	name = Bruno Luiz Silva
 	email = contact@brunoluiz.net
+	signingkey = ~/.ssh/id_ed25519_personal.pub
 [filter "strongbox"]
 	clean = strongbox -clean %f
 	smudge = strongbox -smudge %f

@@ -21,6 +21,7 @@
 	prompt = false
 [mergetool "vimdiff"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
-
+[gpg]
+	format = ssh
 [include]
 	path=~/.gitconfig.github.brunoluiz
