@@ -97,7 +97,6 @@ source $HOME/.zshrc.local
 ### kitty
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
-alias python=/usr/bin/python3
 alias gfu=git commit -m 'do' && ggp
 
 ksenv() {
@@ -120,3 +119,5 @@ export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 
 PROMPT="$PROMPT"
+
+export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
