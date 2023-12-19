@@ -23,5 +23,7 @@
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [gpg]
 	format = ssh
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 [include]
 	path=~/.gitconfig.github.brunoluiz
