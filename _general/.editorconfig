@@ -7,10 +7,11 @@ insert_final_newline = true
 charset = utf-8
 trim_trailing_whitespace = true
 
-[{Makefile,go.mod,go.sum,*.go,.git*,*.rego}]
+[{Makefile,go.mod,go.sum,*.go,.git*}]
 indent_style = tab
 indent_size = 2
 
 [*.{js,ts,md,json,html}]
 indent_style = space
 indent_size = 2
+
