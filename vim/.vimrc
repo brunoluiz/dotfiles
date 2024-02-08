@@ -173,7 +173,7 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'typescript': ['prettier'],
       \ 'terraform': ['terraform'],
-      \'go': ['goimports'],
+      \'go': ['goimports', 'gofumpt'],
       \'solidity': ['remove_trailing_lines', 'trim_whitespace']
       \}
 let g:ale_linters = {
@@ -186,7 +186,7 @@ let g:ale_linters = {
       \ 'go': ['golangci-lint', 'gopls']
       \}
 let g:ale_linters_explicit = 1
-let g:ale_disable_lsp = 1
+let g:ale_disable_lsp = 'auto'
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled=0
@@ -198,7 +198,7 @@ let g:ale_sign_warning = '⚠'
 command! ALEDisableFixers       let g:ale_fix_on_save=0
 command! ALEEnableFixers        let g:ale_fix_on_save=1
 command! ALEDisableFixersBuffer let b:ale_fix_on_save=0
-command! ALEEnableFixersBuffer  let b:ale_fix_on_save=0
+command! ALEEnableFixersBuffer  let b:ale_fix_on_save=1
 command! ALEToggleFixers call functions#fckALEToggle('global')
 command! ALEToggleFixersBuffer call functions#fckALEToggle('buffer')
 highlight ALEWarning cterm=underline ctermfg=LightYellow ctermbg=Yellow
