@@ -8,25 +8,10 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
-[{Makefile,makefile}]
-indent_style = tab
-
-[*.md]
-trim_trailing_whitespace = false
-
-[*.go]
+[{Makefile,go.mod,go.sum,*.go,.git*}]
 indent_style = tab
 indent_size = 2
 
-[*.py]
-indent_style = space
-indent_size = 4
-
-[{*.yml,*.cjson,*.json,*.js}]
+[*.{js,ts,md,json,html,py}]
 indent_style = space
 indent_size = 2
-
-[*.java]
-indent_style = space
-indent_size = 4
-continuation_indent_size = 0
