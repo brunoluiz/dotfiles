@@ -22,6 +22,15 @@
 	prompt = false
 [mergetool "vimdiff"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[diff]
+	tool = difftastic
+	external = difft
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+	difftool = true
 [gpg]
 	format = ssh
 [commit]
