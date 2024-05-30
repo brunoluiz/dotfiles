@@ -126,18 +126,6 @@ if exists('$BASE16_THEME')
     colorscheme base16-$BASE16_THEME
 endif
 
-" dont use arrowkeys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-
-" really, just dont
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>
-inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
-
 " disable vim backup (use git for christ sake)
 set nobackup
 set nowb
