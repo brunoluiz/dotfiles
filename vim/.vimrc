@@ -63,6 +63,11 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 " nerdtree highlight
 let g:NERDTreeHighlightCursorline = 0 " disable cursor line to avoid lags
 
+" autopairs
+let g:AutoPairsCompleteOnlyOnSpace = 1
+let g:AutoPairsWildClosedPair = ''
+let g:AutoPairsMultilineClose = 0
+
 " nerdcommenter
 let g:NERDSpaceDelims = 1
 let g:NERDCommentEmptyLines = 1
