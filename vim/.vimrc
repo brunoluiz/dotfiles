@@ -33,6 +33,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'github/copilot.vim'
 Plug 'tpope/vim-rhubarb'
+Plug 'joerdav/templ.vim' " Synthax highlight for templ files
 call plug#end()
 
 filetype plugin indent on " required
@@ -57,6 +58,7 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeFind<CR>
 
 " nerdtree highlight
 let g:NERDTreeHighlightCursorline = 0 " disable cursor line to avoid lags
