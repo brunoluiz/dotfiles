@@ -190,12 +190,6 @@ command! ALEToggleFixersBuffer call functions#fckALEToggle('buffer')
 highlight ALEWarning cterm=underline ctermfg=LightYellow ctermbg=Yellow
 highlight ALEError cterm=underline ctermfg=LightRed ctermbg=DarkRed
 
-" gui
-" set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-" set antialias
-" set guioptions=
-" set visualbell
-
 " Ack search
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
