@@ -154,10 +154,6 @@ set listchars=tab:▸\ ,eol:¬,trail:·,space:·
 " enable omnifunction
 set completeopt=menu,menuone,preview,noselect,noinsert
 
-" syntax
-" syntax on
-" let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
-
 " ale
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
