@@ -58,7 +58,7 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
 
 " nerdtree highlight
 let g:NERDTreeHighlightCursorline = 0 " disable cursor line to avoid lags
@@ -253,18 +253,21 @@ require('nvim-treesitter.configs').setup {
 EOF
 
 lua <<EOF
--- makes sure the LSP configured later with lspconfig are available, and install them automatically if they're not
 require("mason").setup() -- !! THIS MUST BE CALLED BEFORE ANY LANGUAGE SERVER CONFIGURATION
 require("mason-lspconfig").setup {
-  automatic_installation = true -- automatically install language servers setup below for lspconfig
+  automatic_installation = true
 }
+EOF
 
--- Actually setup the language servers so that they're available for our LSP client.
--- Setup language servers.
+lua <<EOF
 local lspconfig = require('lspconfig')
 lspconfig.tsserver.setup {}
-lspconfig.terraform_lsp.setup{}
+lspconfig.terraformls.setup{}
 lspconfig.gopls.setup{}
+lspconfig.yamlls.setup{}
+lspconfig.golangci_lint_ls.setup{}
+lspconfig.vimls.setup{}
+lspconfig.jsonls.setup{}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
