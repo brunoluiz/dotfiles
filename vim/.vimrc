@@ -8,10 +8,10 @@ endif
 
 " set the runtime path to include Vundle and initialize
 call plug#begin()
-Plug 'chriskempson/base16-vim' " base16 themes
+" Plug 'chriskempson/base16-vim' " base16 themes
+Plug 'RRethy/base16-nvim'
 Plug 'tpope/vim-fugitive' " git commands inside vim
 Plug 'jiangmiao/auto-pairs' " auto pair chars such as ''{}...
-Plug 'sheerun/vim-polyglot' " multiple language syntax support
 Plug 'tpope/vim-repeat' " enable macro to repeat plugins commands
 Plug 'tpope/vim-surround' " enable to surround strings vim determined chars
 Plug 'editorconfig/editorconfig-vim' " editorconfig loader
@@ -23,10 +23,8 @@ Plug 'scrooloose/nerdtree' " file tree / explorer
 Plug 'scrooloose/nerdcommenter' " code commenter
 Plug 'tpope/vim-abolish' " better search replace with :%S (eg.: get/Get => Getx)
 Plug 'airblade/vim-gitgutter' " git marker for modified lines
-" Plug 'honza/vim-snippets' " Snippets are separated from the engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bkad/CamelCaseMotion'
-Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-projectionist'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -34,6 +32,7 @@ Plug 'chrisbra/csv.vim'
 Plug 'github/copilot.vim'
 Plug 'tpope/vim-rhubarb'
 Plug 'joerdav/templ.vim' " Synthax highlight for templ files
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 filetype plugin indent on " required
@@ -122,8 +121,7 @@ set foldlevelstart=10000
 
 " gui vim
 if exists('$BASE16_THEME')
-      \ && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
-    let base16colorspace=256
+    "let base16colorspace=256
     colorscheme base16-$BASE16_THEME
 endif
 
@@ -168,8 +166,8 @@ set listchars=tab:▸\ ,eol:¬,trail:·,space:·
 set completeopt=menu,menuone,preview,noselect,noinsert
 
 " syntax
-syntax on
-let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
+" syntax on
+" let g:javascript_plugin_jsdoc = 1 " better highlight for jsdocs
 
 " ale
 let g:ale_fixers = {
@@ -233,14 +231,9 @@ augroup projection_extension
   let args = {}
   let args['*.go'] =            { 'alternate': '{}_test.go' }
   let args['*_test.go'] =       { 'alternate': '{}.go' }
-  let args['*.cpp'] =           { 'alternate': '{}.h' }
-  let args['*.h'] =             { 'alternate': '{}.cpp' }
   let args['src/*.js'] =        { 'alternate': ['tests/spec/{}.spec.js', 'tests/{}.spec.js'] }
   let args['tests/spec/*.spec.js'] = { 'alternate': ['{}.js', 'src/{}.js'] }
   let args['tests/*.spec.js'] = { 'alternate': ['{}.js', 'src/{}.js'] }
-  let args['dev-aws/*'] =       { 'alternate': 'prod-aws/{}' }
-  let args['dev-gcp/*'] =       { 'alternate': 'prod-gcp/{}' }
-  let args['dev-merit/*'] =     { 'alternate': 'prod-aws/{}' }
   let args['*.up.sql'] =        { 'alternate': '{}.down.sql' }
   let args['*.down.sql'] =      { 'alternate': '{}.up.sql' }
   autocmd User ProjectionistDetect call projectionist#append(getcwd(), args)
@@ -397,3 +390,15 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+lua <<EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "lua", "vim", "vimdoc", "query", "go", "gomod", "gowork", "gotmpl", "gosum", "javascript", "json", "typescript", "terraform", "yaml", "sql", "diff" },
+  sync_install = false, -- Install parsers synchronously (only applied to `ensure_installed`)
+  auto_install = true, -- Automatically install missing parsers when entering buffer (set to false if you don't have `tree-sitter` CLI installed)
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
