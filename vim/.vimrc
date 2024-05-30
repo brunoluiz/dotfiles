@@ -160,7 +160,6 @@ let g:ale_fixers = {
       \ 'typescript': ['prettier'],
       \ 'terraform': ['terraform'],
       \'go': ['goimports', 'gofumpt'],
-      \'solidity': ['remove_trailing_lines', 'trim_whitespace']
       \}
 let g:ale_linters = {
       \ 'typescript': ['eslint'],
@@ -168,7 +167,6 @@ let g:ale_linters = {
       \ 'terraform': ['terraform'],
       \ 'yaml': ['yamllint'],
       \ 'graphql': ['gqlint'],
-      \ 'solidity': ['solc', 'solhint'],
       \ 'go': ['golangci-lint', 'gopls']
       \}
 let g:ale_linters_explicit = 1
@@ -201,11 +199,9 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 :augroup END
 
 " CamelCaseMotion
-
 let g:camelcasemotion_key = '<leader>'
 
 " vim-projectionist
-
 augroup projection_extension
   let args = {}
   let args['*.go'] =            { 'alternate': '{}_test.go' }
