@@ -239,9 +239,9 @@ lspconfig.tsserver.setup {}
 lspconfig.terraformls.setup{}
 lspconfig.gopls.setup{}
 lspconfig.yamlls.setup{}
-lspconfig.golangci_lint_ls.setup{}
 lspconfig.vimls.setup{}
 lspconfig.jsonls.setup{}
+-- lspconfig.golangci_lint_ls.setup{}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
