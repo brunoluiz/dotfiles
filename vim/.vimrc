@@ -42,6 +42,9 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'nvim-lua/plenary.nvim' " search and find
+Plug 'nvim-pack/nvim-spectre' " search and find
+Plug 'nvim-tree/nvim-web-devicons' " icons
 call plug#end()
 
 filetype plugin indent on " required
@@ -411,4 +414,19 @@ lua <<EOF
   require('lspconfig').vimls.setup {
     capabilities = capabilities
   }
+EOF
+
+lua <<EOF
+vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
+    desc = "Toggle Spectre"
+})
+vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+    desc = "Search current word"
+})
+vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+    desc = "Search current word"
+})
+vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+    desc = "Search on current file"
+})
 EOF
