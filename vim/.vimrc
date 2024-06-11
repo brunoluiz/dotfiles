@@ -94,7 +94,7 @@ omap <leader><tab> <plug>(fzf-maps-o)
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
-let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden' " filters out .gitignore files
+let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden --ignore-dir .git --ignore-dir .terraform' " filters out .gitignore files
 
 " keyboard
 set tabstop=2
