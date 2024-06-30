@@ -175,7 +175,7 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'typescript': ['prettier'],
       \ 'terraform': ['terraform'],
-      \'go': ['goimports', 'gofumpt'],
+      \ 'go': ['goimports', 'gofumpt'],
       \}
 let g:ale_linters = {
       \ 'typescript': ['eslint'],
@@ -240,6 +240,16 @@ require('nvim-treesitter.configs').setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+local parser_config = require'nvim-treesitter.parsers'.get_parser_configs()
+parser_config.gotmpl = {
+  install_info = {
+    url = "https://github.com/ngalaiko/tree-sitter-go-template",
+    files = {"src/parser.c"}
+  },
+  filetype = "gotmpl",
+  used_by = {"gohtmltmpl", "gotexttmpl", "gotmpl", "yaml"}
+}
 EOF
 
 lua <<EOF
@@ -253,6 +263,7 @@ lua <<EOF
 local lspconfig = require('lspconfig')
 lspconfig.tsserver.setup {}
 lspconfig.terraformls.setup{}
+lspconfig.bufls.setup{}
 lspconfig.gopls.setup{
       settings = {
         gopls = {
@@ -291,9 +302,10 @@ lspconfig.gopls.setup{
         },
       },
 }
-lspconfig.yamlls.setup{}
+--lspconfig.yamlls.setup{}
 lspconfig.vimls.setup{}
 lspconfig.jsonls.setup{}
+lspconfig.lemminx.setup{}
 -- lspconfig.golangci_lint_ls.setup{}
 
 -- Global mappings.
@@ -414,6 +426,9 @@ lua <<EOF
   require('lspconfig').vimls.setup {
     capabilities = capabilities
   }
+  require('lspconfig').bufls.setup{
+    capabilities = capabilities
+  }
 EOF
 
 lua <<EOF
@@ -430,3 +445,27 @@ vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search(
     desc = "Search on current file"
 })
 EOF
+
+lua <<EOF
+vim.filetype.add {
+  extension = {
+    tfvars = "hcl",
+  },
+}
+EOF
+
+"autocmd BufWritePre *.go :silent! lua vim.lsp.buf.format ({ async = false })
+
+" lua <<EOF
+" vim.api.nvim_create_autocmd("BufWritePre", {
+"     buffer = buffer,
+"     callback = function()
+"         vim.lsp.buf.format { async = false }
+"         local orignal = vim.notify
+"         vim.notify = function(msg, level, opts)
+"           return
+"         end
+"         vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
+"     end
+" })
+" EOF
