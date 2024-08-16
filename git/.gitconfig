@@ -26,5 +26,11 @@
 	format = ssh
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[include]
-	path=~/.gitconfig.github.brunoluiz
+[user]
+	name = Bruno Luiz Silva
+	email = contact@brunoluiz.net
+	signingkey = ~/.ssh/id_ed25519_personal.pub
+[core]
+	sshCommand = ssh -i ~/.ssh/id_ed25519_personal
+[ssh]
+	key = ~/.ssh/id_ed25519_personal

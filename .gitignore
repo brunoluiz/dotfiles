@@ -1,2 +1,4 @@
 zsh/.zsh.local
 git/.gitconfig.local
+ssh/.config/id*
+ssh/.config/known_hosts
