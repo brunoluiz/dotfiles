@@ -4,8 +4,6 @@ stow:
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow fonts
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow git
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow starship
-	mkdir -p .config/kitty
-	-@stow --verbose --target ~ --dir $(shell pwd) --stow kitty
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow tmux
 	touch ~/.zshrc.local
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow zsh
