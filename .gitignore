@@ -2,3 +2,5 @@ zsh/.zsh.local
 git/.gitconfig.local
 ssh/.config/id*
 ssh/.config/known_hosts
+fish/.config/fish/*/local.fish
+fish/.config/fish/fish_variables

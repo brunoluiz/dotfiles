@@ -10,9 +10,12 @@ stow:
 	# -@stow --verbose --target ~ --dir $(shell pwd) --stow node # Can be dangerous due to credentials
 	mkdir -p .config/nvim
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow nvim
+	mkdir -p .config/fish
+	-@stow --verbose --target ~ --dir $(shell pwd) --stow fish
 	mkdir .ssh
 	chmod 700 ~/.ssh
 	chmod 600 ~/.ssh/*
 
 install:
 	./macos.sh
+	curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
