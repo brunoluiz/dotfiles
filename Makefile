@@ -1,7 +1,6 @@
 # Some packages might need manual stowing due to potential conflicts OR credentials
 stow:
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow _general
-	-@stow --verbose --target ~ --dir $(shell pwd) --stow fonts
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow git
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow starship
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow tmux
