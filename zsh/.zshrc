@@ -1,68 +1,35 @@
+# zsh: Enable profiler
 zmodload zsh/zprof
 
-# Install antigen if not installed
-if [ ! -f "$HOME/.antigen.zsh" ]; then
-  curl -L git.io/antigen > $HOME/.antigen.zsh
-fi
-
+# zsh: Start antigen (plugin manager)
+[ ! -f "$HOME/.antigen.zsh" ] && (curl -L git.io/antigen > $HOME/.antigen.zsh)
 source $HOME/.antigen.zsh
+
+# zsh: Basic settings
 CASE_SENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 BASE16_SHELL_ENABLE_VARS=1
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
 
-# Set-up pugins
+# zsh: Set-up pugins
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle macos
 antigen bundle common-aliases
 antigen bundle kubectl
-antigen bundle kube-ps1
+antigen bundle jeffreytse/zsh-vi-mode
 antigen theme amuse
 antigen apply
 
-### Useful functions
+# Configure PS1 through starship
+eval "$(starship init zsh)"
 
-# Confirm command to be executed
-confirm() {
-  echo -n "\e[33mDo you want to run $*? [N/yes] \e[m"
-  read REPLY
+# Enable mise (similar to asdf, allow multiple versions of binaries)
+eval "$(~/.local/bin/mise activate zsh)"
 
-  # if test "$REPLY" = "y" -o "$REPLY" = "Y"; then
-  if test "$REPLY" = "yes"; then
-    "$@"
-  else
-      echo "Cancelled by user"
-  fi
-}
-
-notes () {
-  cd ~/Dropbox/notes
-  vim
-}
-
-# kubectl tricks
-safe_kubectlapply() {
-  context=$(kubectl config current-context)
-  echo "Applying to $context"
-  if [[ $@ == *$context* ]] ; then
-    confirm kubectl apply -f "$@"
-  else
-    echo "\e[31mMismatch on context: $@ => $context\e[m"
-  fi
-}
-
-safe_kubectlapply_kustomize() {
-  context=$(kubectl config current-context)
-  echo "Applying to $context"
-  if [[ $@ == *$context* ]] ; then
-    confirm kubectl apply -k "$@"
-  else
-    echo "\e[31mMismatch on context: $@ => $context\e[m"
-  fi
-}
-
-### Variables
-
+# Global variables
 export DEFAULT_USER="$(whoami)"
 export BASE16_SHELL="$HOME/.config/base16-shell/"
 [ ! -f "$BASE16_SHELL/profile_helper.sh" ] && git clone https://github.com/tinted-theming/base16-shell ~/.config/base16-shell
@@ -70,17 +37,15 @@ export BASE16_SHELL="$HOME/.config/base16-shell/"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
-# export PATH=$PATH:/usr/local/opt/asdf/libexec/asdf.sh
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$PATH:/Users/bruno.silva/.local/bin
 export PATH=$PATH:/opt/homebrew/bin
+export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
 export EDITOR=nvim
 export TERM=xterm-256color # this seems to break k9s colours
 export BASH_SILENCE_DEPRECATION_WARNING=1
-export PROMPT=$PROMPT'$(kube_ps1) '
 
-### Aliases
-
+# Aliases
 alias s='stern'
 alias kns='kubens'
 alias kcx='kubectx'
@@ -90,35 +55,7 @@ alias q='q -d ,'
 alias vim='/opt/homebrew/bin/nvim'
 alias vi='/opt/homebrew/bin/nvim'
 alias tmux='tmux'
-# alias kubectl="kubecolor"
 alias tf='terraform'
 
-### kitty
-bindkey "\e\e[D" backward-word
-bindkey "\e\e[C" forward-word
-alias gfu=git commit -m 'do' && ggp
-
-ksenv() {
-  kubectl get secret $@ -o go-template='{{range $k,$v := .data}}{{printf "%s=" $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
-}
-
-ksyaml() {
-  kubectl get secret $@ -o go-template='{{range $k,$v := .data}}{{printf "%s: " $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{"\n"}}{{end}}'
-}
-
-# . "/opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash"
-# . "/opt/homebrew/opt/asdf/libexec/asdf.sh"
-
-search_and_replace() {
-  ag -0 -l $1 | xargs -0 sed -ri.bak -e "s/$1/$2/g"
-}
-
-export HISTSIZE=1000000000
-export SAVEHIST=$HISTSIZE
-setopt EXTENDED_HISTORY
-
-export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
-
-### Local specifics
-eval "$(~/.local/bin/mise activate zsh)"
+# Local specifics
 source $HOME/.zshrc.local
