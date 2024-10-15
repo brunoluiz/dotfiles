@@ -27,7 +27,7 @@ antigen apply
 eval "$(starship init zsh)"
 
 # Enable mise (similar to asdf, allow multiple versions of binaries)
-eval "$(~/.local/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
 
 # Global variables
 export DEFAULT_USER="$(whoami)"

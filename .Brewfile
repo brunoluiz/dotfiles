@@ -1,6 +1,4 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 
 # Shell
 brew "starship" # PS1 management tool
@@ -8,6 +6,22 @@ brew "fish"
 brew "tmux"
 brew "bash"
 cask "wezterm"
+
+# Devops
+brew "mise"
+brew "awscli"
+brew "semgrep"
+brew "trivy"
+brew "tflint"
+brew "kubectx"
+brew "k9s"
+brew "htop"
+brew "pre-commit"
+cask "rancher"
+cask "postman"
+cask "aws-vault"
+cask "google-cloud-sdk"
+
 
 # General
 brew "kubecolor"
@@ -19,10 +33,6 @@ cask "google-chrome"
 
 # Languages
 brew "python" # try to use mise instead
-
-# Security
-brew "keyring"
-brew "ykman"
 
 # Code editors
 brew "neovim"
@@ -36,25 +46,11 @@ brew "fx"
 # Git
 brew "gh"
 brew "tig"
-brew "lindell/multi-gitter/multi-gitter"
+# brew "lindell/multi-gitter/multi-gitter"
 
 # Database
 brew "postgresql"
 brew "pgcli"
-
-# Devops
-brew "mise"
-brew "awscli"
-brew "semgrep"
-brew "trivy"
-brew "tflint"
-brew "kubectx"
-brew "k9s"
-brew "htop"
-brew "pre-commit"
-cask "docker"
-cask "postman"
-cask "aws-vault"
 
 # Search tools
 brew "pandoc" # Dependency of rga

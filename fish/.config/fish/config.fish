@@ -3,7 +3,7 @@ if status is-interactive
 end
 
 # Load mise environment (binary version management)
-~/.local/bin/mise activate fish | source
+mise activate fish | source
 
 # Load prompt/PS1 engine
 starship init fish | source
