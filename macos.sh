@@ -15,7 +15,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Installs all dependencies from Brewfile
-brew bundle install --file=.Brewfile
+brew bundle install
 
 # Adds fish as default shell
 sudo sh -c "echo $(which fish) >> /etc/shells"

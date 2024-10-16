@@ -17,11 +17,11 @@ brew "kubectx"
 brew "k9s"
 brew "htop"
 brew "pre-commit"
-cask "rancher"
-cask "postman"
 cask "aws-vault"
 cask "google-cloud-sdk"
-
+# cask "postman"
+# cask "rancher"
+# cask "docker"
 
 # General
 brew "kubecolor"
