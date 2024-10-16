@@ -13,8 +13,9 @@ stow:
 	mkdir -p ~/.config/fish
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow fish
 	mkdir -p ~/.ssh
-	chmod 700 ~/.ssh
-	chmod 600 ~/.ssh/*
+	-@chmod 700 ~/.ssh
+	-@chmod 600 ~/.ssh/*
+	-@stow --verbose --target ~ --dir $(shell pwd) --stow ssh
 
 install:
 	./macos.sh
