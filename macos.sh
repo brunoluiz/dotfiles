@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo '⚠️ If this is an older MacOS, you need to create a symlink to simulate the new brew behaviour:'
+echo 'ln -s /usr/local/bin /opt/homebrew/bin'
+
 # Installs homebrew
 if ! command -v brew 2>&1 >/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
