@@ -15,3 +15,4 @@ set -x AWS_VAULT_PROMPT ykman
 # set -x KUBECONFIG (find ~/.kube/clusters -type f | tr '\n' ':' | sed 's/:$//')
 set -x SHELL fish
 set -x fisher_path $HOME/.config/fisher
+set -x GITHUB_TOKEN $(gh auth token)

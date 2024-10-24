@@ -44,6 +44,7 @@ export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
 export EDITOR=nvim
 export TERM=xterm-256color # this seems to break k9s colours
 export BASH_SILENCE_DEPRECATION_WARNING=1
+export GITHUB_TOKEN=$(gh auth token)
 
 # Aliases
 alias s='stern'
