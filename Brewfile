@@ -8,6 +8,7 @@ brew "bash"
 cask "wezterm"
 
 # Devops
+brew "direnv"
 brew "mise"
 brew "awscli"
 brew "semgrep"
