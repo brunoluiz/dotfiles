@@ -7,3 +7,4 @@ abbr vim /opt/homebrew/bin/nvim
 abbr vi /opt/homebrew/bin/nvim
 abbr tmux tmux
 abbr tf terraform
+abbr gag git again

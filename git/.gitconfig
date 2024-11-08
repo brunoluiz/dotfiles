@@ -10,6 +10,7 @@
 	undo = reset --soft HEAD^ # undo previous commit
 	changelog = log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit # changelog in the format: $short_commit - $message ($time) <$author>
 	redo = !git add --all && git commit --amend --no-edit -s && git push --force
+	again = !git add --all && git commit -m again && git push
 [status]
 	showUntrackedFiles = all # do not hide anything from me git
 [pull]
