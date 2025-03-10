@@ -1,7 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
-config.window_background_opacity = 0.9
 
 -- UI rendering (font/spacing)
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
