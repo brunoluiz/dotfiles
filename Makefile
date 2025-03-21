@@ -5,11 +5,11 @@ stow:
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow starship
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow tmux
 	touch ~/.zshrc.local
-	-@stow --verbose --target ~ --dir $(shell pwd) --stow zsh
-	-@stow --verbose --target ~ --dir $(shell pwd) --stow wezterm
+	-@stow --verbose --target ~ --dir $(shell pwd) --stow zsh --adopt
+	-@stow --verbose --target ~ --dir $(shell pwd) --stow wezterm --adopt
 	# -@stow --verbose --target ~ --dir $(shell pwd) --stow node # Can be dangerous due to credentials
 	mkdir -p ~/.config/nvim
-	-@stow --verbose --target ~ --dir $(shell pwd) --stow nvim
+	-@stow --verbose --target ~ --dir $(shell pwd) --stow nvim --adopt
 	mkdir -p ~/.config/fish
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow fish
 	mkdir -p ~/.ssh
