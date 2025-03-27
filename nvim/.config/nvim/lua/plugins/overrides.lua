@@ -1,5 +1,16 @@
 return {
   {
+    "nvim-pack/nvim-spectre",
+    opts = {
+      replace_engine = {
+        ["sed"] = {
+          cmd = "sed",
+          args = { "-i", "", "-E" },
+        },
+      },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       format = { timeout_ms = 10000 },
