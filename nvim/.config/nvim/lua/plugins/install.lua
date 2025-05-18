@@ -13,4 +13,9 @@ return {
   { "cappyzawa/starlark.vim", ft = "tiltfile" },
   { "IndianBoy42/tree-sitter-just" },
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+  {
+    "olimorris/codecompanion.nvim",
+    opts = {},
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
+  },
 }
