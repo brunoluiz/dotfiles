@@ -12,6 +12,8 @@ stow:
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow nvim --adopt
 	mkdir -p ~/.config/fish
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow fish
+	mkdir -p ~/.config/ghostty
+	-@stow --verbose --target ~ --dir $(shell pwd) --stow ghostty --adopt
 	mkdir -p ~/.ssh
 	-@chmod 700 ~/.ssh
 	-@chmod 600 ~/.ssh/*

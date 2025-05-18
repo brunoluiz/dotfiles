@@ -1,0 +1,27 @@
+shell-integration = fish
+font-family = JetBrains Mono
+font-size = 12
+theme = Dracula
+mouse-hide-while-typing = true
+scrollback-limit = 1000000
+adjust-cell-width = -5%
+adjust-cell-height = 10%
+window-inherit-font-size = false
+
+keybind = ctrl+n=new_window
+keybind = ctrl+a>c=new_tab
+
+keybind = ctrl+a>+h=goto_split:left
+keybind = ctrl+a>+j=goto_split:bottom
+keybind = ctrl+a>+k=goto_split:top
+keybind = ctrl+a>+l=goto_split:right
+
+keybind = ctrl+a>shift+\=new_split:right
+keybind = ctrl+a>-=new_split:down
+keybind = ctrl+a>z=toggle_split_zoom
+
+keybind = ctrl+a>n=next_tab
+keybind = ctrl+a>p=previous_tab
+
+keybind = super+r=reload_config
+window-save-state = always
