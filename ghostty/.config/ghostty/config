@@ -8,7 +8,8 @@ adjust-cell-width = -5%
 adjust-cell-height = 10%
 window-inherit-font-size = false
 
-keybind = ctrl+n=new_window
+keybind = super+n=new_window
+keybind = super+t=new_tab
 keybind = ctrl+a>c=new_tab
 
 keybind = ctrl+a>+h=goto_split:left
@@ -24,4 +25,5 @@ keybind = ctrl+a>n=next_tab
 keybind = ctrl+a>p=previous_tab
 
 keybind = super+r=reload_config
+keybind = super+f=write_scrollback_file:open
 window-save-state = always

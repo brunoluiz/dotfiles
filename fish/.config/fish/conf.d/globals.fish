@@ -2,6 +2,7 @@ fish_add_path $GOPATH/bin
 fish_add_path /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 fish_add_path /Users/bruno.silva/.local/bin
 fish_add_path /opt/homebrew/bin
+fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.krew/bin
 
 set -x DEFAULT_USER "$(whoami)"

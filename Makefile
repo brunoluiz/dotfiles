@@ -2,6 +2,7 @@
 stow:
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow _general --adopt
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow git --adopt
+	-@stow --verbose --target ~ --dir $(shell pwd) --stow sqlite --adopt
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow starship --adopt
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow tmux --adopt
 	touch ~/.zshrc.local
