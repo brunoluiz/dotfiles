@@ -23,7 +23,7 @@ brew "gemini-cli"
 # Cloud vendors
 brew "awscli"
 brew "doctl"
-brew "fly"
+brew "flyctl"
 
 # Docker & Kubernetes
 brew "argocd"
