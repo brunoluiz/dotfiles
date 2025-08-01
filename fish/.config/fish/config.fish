@@ -8,8 +8,14 @@ mise activate fish | source
 # Load prompt/PS1 engine
 starship init fish | source
 
-# Set path to fisher plugins
-set -xg fisher_path $HOME/.config/fisher
+# Added by LM Studio CLI (lms)
+fish_add_path /Users/brunoluiz/.lmstudio/bin
 
-# Load fisher plugins
-source $HOME/.config/fish/conf.d/fisher.fish
+# Load aliases
+. ~/.bash_aliases
+
+# Load bash colours
+tinty apply base16-dracula
+
+# Load z
+zoxide init fish | source

@@ -3,8 +3,14 @@
 	followTags = true # always push the tags (usually it is done manually through --follow-tags)
 [core]
 	editor = nvim
+	pager = delta
 	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore_global
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true  # use n and N to move between diff sections
+	line-numbers = true
 [alias]
 	head = rev-parse HEAD # returns head commit
 	undo = reset --soft HEAD^ # undo previous commit
@@ -16,13 +22,7 @@
 [pull]
 	default = current
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
-[mergetool]
-	keepBackup = false
-	prompt = false
-[mergetool "vimdiff"]
-	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+	conflictstyle = zdiff3
 [gpg]
 	format = ssh
 [url "git@github.com:"]

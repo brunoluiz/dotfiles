@@ -33,7 +33,32 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.rego" },
     { import = "lazyvim.plugins.extras.lang.sql" },
-    { import = "lazyvim.plugins.extras.lang.terraform" },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function(_, opts)
+        if type(opts.ensure_installed) == "table" then
+          vim.list_extend(opts.ensure_installed, { "terraform" })
+        end
+      end,
+    },
+    {
+      "mason-org/mason-registry",
+      opts = function(_, opts)
+        if type(opts.ensure_installed) == "table" then
+          vim.list_extend(opts.ensure_installed, { "terraform-ls" })
+        end
+      end,
+    },
+    {
+      "neovim/nvim-lspconfig",
+      opts = {
+        servers = {
+          terraformls = {
+            filetypes = { "terraform", "tf", "terraform-vars", "tfvars", "tofu" },
+          },
+        },
+      },
+    },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
