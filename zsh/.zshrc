@@ -60,3 +60,8 @@ alias tf='terraform'
 
 # Local specifics
 source $HOME/.zshrc.local
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/brunoluiz/.lmstudio/bin"
+# End of LM Studio CLI section
+
