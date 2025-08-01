@@ -7,9 +7,10 @@
 	attributesfile = ~/.gitattributes
 	excludesfile = ~/.gitignore_global
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 [delta]
-    navigate = true  # use n and N to move between diff sections
+	navigate = true  # use n and N to move between diff sections
+	line-numbers = true
 [alias]
 	head = rev-parse HEAD # returns head commit
 	undo = reset --soft HEAD^ # undo previous commit
