@@ -19,5 +19,6 @@ fish_add_path /Users/brunoluiz/.codeium/windsurf/bin
 
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/brunoluiz/.lmstudio/bin
-# End of LM Studio CLI section
 
+# Load z
+zoxide init fish | source
