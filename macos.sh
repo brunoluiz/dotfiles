@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo '⚠️ If this is an older MacOS, you need to create a symlink to simulate the new brew behaviour:'
-echo 'ln -s /usr/local/bin /opt/homebrew/bin'
-
 # Installs homebrew
 if ! command -v brew 2>&1 >/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -23,14 +20,6 @@ brew bundle install
 # Adds fish as default shell
 sudo sh -c "echo $(which fish) >> /etc/shells"
 chsh -s $(which fish)
-
-mise use --global node@22
-mise use --global golang@1.23
-mise use --global kubectl@1.30
-mise use --global terraform@1.5
-
-# Create local files
-touch ~/.zshrc.local
 
 # Installs krew -- kubectl plugin manager
 (

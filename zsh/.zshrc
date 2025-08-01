@@ -67,6 +67,7 @@ alias vim='/opt/homebrew/bin/nvim'
 alias vim=/opt/homebrew/bin/nvim
 
 # Local specifics
+touch ~/.zshrc.local
 source $HOME/.zshrc.local
 
 # Added by LM Studio CLI (lms)

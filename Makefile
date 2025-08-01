@@ -35,5 +35,10 @@ unstow:
 	-@stow --verbose --target ~ --dir $(shell pwd) --delete wezterm
 	-@stow --verbose --target ~ --dir $(shell pwd) --delete zsh
 
-install:
+macos:
 	./macos.sh
+
+mise:
+	mise install
+
+install: macos stow mise
