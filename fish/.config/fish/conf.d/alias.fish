@@ -10,3 +10,4 @@ alias ls=lsd
 alias cat=bat
 alias less=bat
 alias ps=procs
+alias cd=z # does not work?
