@@ -22,7 +22,7 @@ brew "golangci-lint"
 # Cloud vendors
 brew "awscli"
 brew "doctl"
-brew "flyctl"
+brew "fly"
 
 # Docker & Kubernetes
 brew "argocd"
@@ -58,6 +58,7 @@ brew "nushell" # Data driven shell
 # Git
 brew "gh"
 brew "tig"
+brew "delta" # Better diffing
 brew "git-extras" # Many extra aliases for git
 
 # HTTP
