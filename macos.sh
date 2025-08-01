@@ -29,6 +29,9 @@ mise use --global golang@1.23
 mise use --global kubectl@1.30
 mise use --global terraform@1.5
 
+# Create local files
+touch ~/.zshrc.local
+
 # Installs krew -- kubectl plugin manager
 (
   set -x
