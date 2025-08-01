@@ -8,6 +8,7 @@ brew "tmux" # Terminal multiplexer (although, some terminals are good enough)
 brew "lsd" # Better ls
 brew "bat" # Better less/cat
 brew "fzf" # Better find
+brew "tinty" # Shell colours
 brew "htop"
 brew "dust"
 brew "duf"
