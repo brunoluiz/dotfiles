@@ -18,6 +18,7 @@ brew "trivy"
 brew "tflint"
 brew "pre-commit"
 brew "golangci-lint"
+brew "gemini-cli"
 
 # Cloud vendors
 brew "awscli"
