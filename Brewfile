@@ -22,7 +22,7 @@ brew "golangci-lint"
 # Cloud vendors
 brew "awscli"
 brew "doctl"
-brew "fly"
+brew "flyctl"
 
 # Docker & Kubernetes
 brew "argocd"

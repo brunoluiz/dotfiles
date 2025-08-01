@@ -42,21 +42,29 @@ export PATH=$PATH:/Users/bruno.silva/.local/bin
 export PATH=$PATH:/opt/homebrew/bin
 export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
 export EDITOR=nvim
+export PAGER=bat
 export TERM=xterm-256color # this seems to break k9s colours
 export BASH_SILENCE_DEPRECATION_WARNING=1
-export GITHUB_TOKEN=$(gh auth token)
 
 # Aliases
-alias s='stern'
-alias kns='kubens'
-alias kcx='kubectx'
+alias cat=bat
+alias cd=z # does not work?
+alias k=kubectl
 alias kaf='safe_kubectlapply'
 alias kak='safe_kubectlapply_kustomize'
+alias kcx=kubectx
+alias kns=kubens
+alias less=bat
+alias ls=lsd
+alias ps=procs
 alias q='q -d ,'
-alias vim='/opt/homebrew/bin/nvim'
-alias vi='/opt/homebrew/bin/nvim'
+alias s='stern'
+alias tf=terraform
 alias tmux='tmux'
-alias tf='terraform'
+alias vi='/opt/homebrew/bin/nvim'
+alias vi=/opt/homebrew/bin/nvim
+alias vim='/opt/homebrew/bin/nvim'
+alias vim=/opt/homebrew/bin/nvim
 
 # Local specifics
 source $HOME/.zshrc.local
