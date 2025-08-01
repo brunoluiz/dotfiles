@@ -42,3 +42,7 @@ mise:
 	mise install
 
 install: macos stow mise
+
+clean:
+	brew cleanup -s
+	docker system prune

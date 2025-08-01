@@ -9,6 +9,8 @@ brew "lsd" # Better ls
 brew "bat" # Better less/cat
 brew "fzf" # Better find
 brew "htop"
+brew "dust"
+brew "duf"
 
 # General development
 brew "direnv"
