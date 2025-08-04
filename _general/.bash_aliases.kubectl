@@ -1,5 +1,8 @@
 # This command is used a LOT both below and in daily life
 alias k=kubectl
+alias kcx=kubectx
+alias kns=kubens
+alias s=stern
 
 # Apply a YML file
 alias kaf='kubectl apply -f'
@@ -158,4 +161,3 @@ alias kgj='kubectl get job'
 alias kej='kubectl edit job'
 alias kdj='kubectl describe job'
 alias kdelj='kubectl delete job'
-

@@ -1,2 +1,2 @@
 # Load aliases
-. ~/.bash_aliases
+. ~/.bash_aliases.overrides
