@@ -1,5 +1,8 @@
+# Disable greeting
+set -g fish_greeting
+
+# Commands to run in interactive sessions can go here
 if status is-interactive
-    # Commands to run in interactive sessions can go here
 end
 
 # Load mise environment (binary version management)
