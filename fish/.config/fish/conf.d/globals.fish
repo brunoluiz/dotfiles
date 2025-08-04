@@ -4,6 +4,7 @@ fish_add_path /Users/bruno.silva/.local/bin
 fish_add_path /opt/homebrew/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.krew/bin
+fish_add_path $HOME/.lmstudio/bin
 
 set -x DEFAULT_USER "$(whoami)"
 set -x CASE_SENSITIVE true

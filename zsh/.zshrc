@@ -1,6 +1,3 @@
-# zsh: Enable profiler
-zmodload zsh/zprof
-
 # zsh: Basic settings
 CASE_SENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -21,17 +18,21 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH=$PATH:/Users/bruno.silva/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/opt/homebrew/bin
-export PATH="$(brew --prefix)/opt/python@3/libexec/bin:$PATH"
-export PATH="$PATH:/Users/brunoluiz/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 export EDITOR=nvim
 export PAGER=bat
 export TERM=xterm-256color # this seems to break k9s colours
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Apply base16-dracula
-tinty apply base16-dracula
+tinty apply base16-materia
+
+# Brew and vendors autocomplete
+eval "$(brew shellenv)"
+autoload -Uz compinit
+compinit
 
 # Local specifics
 touch ~/.zshrc.local
