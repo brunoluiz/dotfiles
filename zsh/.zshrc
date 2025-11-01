@@ -38,3 +38,8 @@ compinit
 touch ~/.zshrc.local
 source $HOME/.zshrc.local
 source $HOME/.bash_aliases
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/brunoluiz/.lmstudio/bin"
+# End of LM Studio CLI section
+

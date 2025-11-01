@@ -16,3 +16,8 @@ zoxide init fish | source
 
 # Load bash colours
 tinty apply base16-materia
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/brunoluiz/.lmstudio/bin
+# End of LM Studio CLI section
+
