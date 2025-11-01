@@ -1,7 +1,22 @@
 [tools]
-go = "1.24"
-kubectl = "1.33"
+bat = "0.26.0" # Better less
+direnv = "2.37.1"
+duf = "0.8.1"
+dust = "1.2.3"
+fzf = "0.66.1" # Fuzzy find
+gemini-cli = "0.11.3"
+go = "1.25"
+golangci-lint = "2.5.0"
+grpcurl = "latest"
+kubectl = "1.33" # Kubernetes CLI
+lsd = "1.2.0" # Better ls
 node = "24.4"
 opentofu = "latest"
-ruby = "latest"
-terraform = "1.5.7"
+semgrep = "1.142.0" # Static analysis
+starship = "1.24.0" # Terminal PS1 tool
+terraform = "1.5.7" # IaC tooling
+tflint = "0.59.1"
+trivy = "0.67.0" # Security scanner
+
+[settings]
+experimental = true

@@ -1,27 +1,15 @@
 tap "homebrew/bundle"
 
 # Shell & Utils
-brew "starship" # PS1 management tool
 brew "bash" # Updated bash (MacOS uses an older one)
 brew "fish" # Alternative shell with better built-in stuff
 brew "tmux" # Terminal multiplexer (although, some terminals are good enough)
-brew "lsd" # Better ls
-brew "bat" # Better less/cat
 brew "fzf" # Better find
 brew "tinty" # Shell colours
 brew "htop"
-brew "dust"
-brew "duf"
 
 # General development
-brew "direnv"
 brew "mise" # python, node, opentofu, golang
-brew "semgrep"
-brew "trivy"
-brew "tflint"
-brew "pre-commit"
-brew "golangci-lint"
-brew "gemini-cli"
 
 # Cloud vendors
 brew "awscli"
