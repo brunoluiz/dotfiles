@@ -1,6 +1,8 @@
 auto-update-channel = tip
-
+window-save-state = always
 shell-integration = fish
+
+# Theme
 font-family = JetBrains Mono
 font-size = 12
 font-thicken = true
@@ -8,7 +10,7 @@ theme = Dracula
 mouse-hide-while-typing = true
 scrollback-limit = 1000000
 adjust-cell-width = -5%
-adjust-cell-height = 10%
+adjust-cell-height = 20%
 window-inherit-font-size = false
 
 # Basic Navigation
@@ -26,6 +28,13 @@ keybind = ctrl+a>l=goto_split:right
 keybind = ctrl+a>shift+backslash=new_split:right
 keybind = ctrl+a>minus=new_split:down
 keybind = ctrl+a>z=toggle_split_zoom
+
+# Creating Splits (directional)
+keybind = ctrl+a>h=new_split:left
+keybind = ctrl+a>j=new_split:down
+keybind = ctrl+a>k=new_split:up
+keybind = ctrl+a>l=new_split:right
+keybind = ctrl+a>f=toggle_split_zoom
 
 # Tab Switching
 keybind = ctrl+a>n=next_tab
