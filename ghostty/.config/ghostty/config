@@ -1,6 +1,9 @@
+auto-update-channel = tip
+
 shell-integration = fish
 font-family = JetBrains Mono
 font-size = 12
+font-thicken = true
 theme = Dracula
 mouse-hide-while-typing = true
 scrollback-limit = 1000000
@@ -8,22 +11,25 @@ adjust-cell-width = -5%
 adjust-cell-height = 10%
 window-inherit-font-size = false
 
+# Basic Navigation
 keybind = super+n=new_window
 keybind = super+t=new_tab
 keybind = ctrl+a>c=new_tab
 
-keybind = ctrl+a>+h=goto_split:left
-keybind = ctrl+a>+j=goto_split:bottom
-keybind = ctrl+a>+k=goto_split:top
-keybind = ctrl+a>+l=goto_split:right
+# Splits (Fixed the +h syntax)
+keybind = ctrl+a>h=goto_split:left
+keybind = ctrl+a>j=goto_split:bottom
+keybind = ctrl+a>k=goto_split:top
+keybind = ctrl+a>l=goto_split:right
 
-keybind = ctrl+a>shift+\=new_split:right
-keybind = ctrl+a>-=new_split:down
+# Creating Splits (Fixed backslash)
+keybind = ctrl+a>shift+backslash=new_split:right
+keybind = ctrl+a>minus=new_split:down
 keybind = ctrl+a>z=toggle_split_zoom
 
+# Tab Switching
 keybind = ctrl+a>n=next_tab
 keybind = ctrl+a>p=previous_tab
 
-keybind = super+r=reload_config
-keybind = super+f=write_scrollback_file:open
-window-save-state = always
+# System (Fixed reload)
+keybind = super+shift+r=reload_config

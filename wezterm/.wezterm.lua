@@ -15,10 +15,7 @@ config.hide_tab_bar_if_only_one_tab = false
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 
 -- Mouse bindings
-config.mouse_bindings = {
-  -- Open URLs with CMD+Click
-  { event = { Up = { streak = 1, button = "Left" } }, mods = "CMD", action = wezterm.action.OpenLinkAtMouseCursor },
-}
+config.mouse_bindings = {}
 
 -- Key bindings
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 }
