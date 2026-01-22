@@ -18,6 +18,7 @@ stow:
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow tmux --adopt
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow wezterm --adopt
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow zsh --adopt
+	-@stow --verbose --target ~ --dir $(shell pwd) --stow opencode --adopt
 	-@chmod 700 ~/.ssh
 	-@chmod 600 ~/.ssh/*
 	@echo '✅ Successfully set up stow'
@@ -34,6 +35,7 @@ unstow:
 	-@stow --verbose --target ~ --dir $(shell pwd) --delete tmux
 	-@stow --verbose --target ~ --dir $(shell pwd) --delete wezterm
 	-@stow --verbose --target ~ --dir $(shell pwd) --delete zsh
+	-@stow --verbose --target ~ --dir $(shell pwd) --delete opencode
 
 macos:
 	./macos.sh
