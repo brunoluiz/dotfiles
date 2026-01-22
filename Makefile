@@ -4,6 +4,7 @@ stow:
 	@mkdir -p ~/.config/ghostty
 	@mkdir -p ~/.config/mise
 	@mkdir -p ~/.config/nvim
+	@mkdir -p ~/.config/opencode
 	@mkdir -p ~/.ssh
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow _general --adopt
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow fish --adopt
