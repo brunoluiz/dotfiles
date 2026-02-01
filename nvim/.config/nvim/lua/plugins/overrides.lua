@@ -12,10 +12,9 @@ return {
         sources = {
           files = {
             hidden = true,
-            ignored = true,
           },
         },
-        file_ignore_patterns = { ".git/" },
+        file_ignore_patterns = { "%.git/", "node_modules/", "__pycache__/", "%.venv/", "venv/", ".venv/" },
       },
     },
   },
