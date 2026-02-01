@@ -1,6 +1,7 @@
 auto-update-channel = tip
 window-save-state = always
 shell-integration = fish
+bell-features = system
 
 # Theme
 font-family = JetBrains Mono
