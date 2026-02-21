@@ -21,6 +21,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/opt/homebrew/bin
 export PATH="$PATH:$HOME/.lmstudio/bin"
+export PATH="$PATH:$HOME/bin"
 export EDITOR=nvim
 export PAGER=bat
 export TERM=xterm-256color # this seems to break k9s colours
