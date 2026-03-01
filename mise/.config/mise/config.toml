@@ -43,6 +43,7 @@ ripgrep = "15.1.0"
 ripgrep-all = "0.10.9"
 yq = "4.52.4"
 docker-cli = "29.0.2"
+bazel = "8.6.0"
 
 [settings]
 experimental = true
