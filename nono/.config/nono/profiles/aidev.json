@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "name": "aidev",
+    "version": "1.0.0",
+    "description": "AI coding assistant",
+    "author": "brunoluiz"
+  },
+  "security": {
+    "groups": [
+      "user_caches_macos",
+      "user_caches_linux",
+      "node_runtime",
+      "go_runtime",
+      "unlink_protection"
+    ],
+    "signal_mode": "isolated"
+  },
+  "trust_groups": [],
+  "filesystem": {
+    "allow": [
+      "$HOME/go",
+      "$HOME/.cache/opencode",
+      "$HOME/.config/opencode",
+      "$HOME/.local/share/opencode",
+      "$HOME/.local/share/opentui",
+      "$HOME/git/brunoluiz/dotfiles"
+    ],
+    "read_file": [
+      "$HOME/.gitconfig",
+      "$HOME/.gitattributes"
+    ],
+    "read": [
+      "$HOME/.local/share/mise"
+    ]
+  },
+  "network": {
+    "block": false,
+    "network_profile": "opencode",
+    "proxy_credentials": [
+      "openai",
+      "anthropic",
+      "github"
+    ],
+    "proxy_allow": [
+      "models.dev",
+      "api.githubcopilot.com",
+      "docs.confluent.io",
+      "cockroachlabs.com",
+      "confluent.io",
+      "docs.aws.amazon.com",
+      "learn.microsoft.com",
+      "cloud.google.com",
+      "docs.cloud.google.com",
+      "developers.google.com",
+      "docs.github.com",
+      "docs.gitlab.com",
+      "confluence.atlassian.com",
+      "docs.stripe.com",
+      "www.twilio.com",
+      "api.slack.com",
+      "www.cisco.com",
+      "docs.redhat.com",
+      "docs.vmware.com",
+      "docs.docker.com",
+      "docs.temporal.io",
+      "kubernetes.io",
+      "www.postgresql.org"
+    ]
+  },
+  "workdir": {
+    "access": "readwrite"
+  },
+  "undo": {
+    "exclude_patterns": [
+      "node_modules",
+      ".next"
+    ]
+  },
+  "interactive": true
+}
