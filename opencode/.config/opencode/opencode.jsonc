@@ -9,7 +9,28 @@
   "enabled_providers": [
     "github-copilot",
     "opencode",
+    "llama.cpp"
   ],
+  "provider": {
+    // Realistically un-usable on the MacBook Air
+    "llama.cpp": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama-server (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:8080/v1"
+      },
+      "models": {
+        // llama-server --port 8080 -m ~/.lmstudio/models/RichardErkhov/deepseek-ai_-_DeepSeek-Coder-V2-Lite-Instruct-gguf/DeepSeek-Coder-V2-Lite-Instruct.Q4_K_S.gguf -c 8192
+        "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct:16b": {
+          "name": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct:16b",
+          "limit": {
+            "context": 8192,
+            "output": 8192
+          }
+        }
+      }
+    },
+  },
   "mcp": {
     "atlassian": {
       "type": "remote",
