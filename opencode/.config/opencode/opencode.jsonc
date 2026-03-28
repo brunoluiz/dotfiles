@@ -1,8 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "github-copilot/gpt-5-mini",
-  "small_model": "github-copilot/gpt-5-mini",
-  "default_agent": "github-copilot/gpt-5-mini",
+  "model": "anthropic/claude-sonnet-4-6",
+  "small_model": "anthropic/claude-sonnet-4-6",
   "autoupdate": true,
   "snapshot": true,
   "share": "disabled",
@@ -11,26 +10,9 @@
     "opencode",
     "llama.cpp"
   ],
-  "provider": {
-    // Realistically un-usable on the MacBook Air
-    "llama.cpp": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "llama-server (local)",
-      "options": {
-        "baseURL": "http://127.0.0.1:8080/v1"
-      },
-      "models": {
-        // llama-server --port 8080 -m ~/.lmstudio/models/RichardErkhov/deepseek-ai_-_DeepSeek-Coder-V2-Lite-Instruct-gguf/DeepSeek-Coder-V2-Lite-Instruct.Q4_K_S.gguf -c 8192
-        "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct:16b": {
-          "name": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct:16b",
-          "limit": {
-            "context": 8192,
-            "output": 8192
-          }
-        }
-      }
-    },
-  },
+  "plugin": [
+    "@mohak34/opencode-notifier@latest"
+  ],
   "mcp": {
     "atlassian": {
       "type": "remote",
@@ -41,26 +23,6 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
       "enabled": false
-    },
-  },
-  "agent": {
-    "explore": {
-      "model": "github-copilot/gpt-5-mini"
-    },
-    "general": {
-      "model": "github-copilot/gpt-5-mini"
-    },
-    "title": {
-      "model": "github-copilot/gpt-5-mini"
-    },
-    "summary": {
-      "model": "github-copilot/gpt-5-mini"
-    },
-    "compaction": {
-      "model": "github-copilot/gpt-5-mini"
-    },
-    "plan": {
-      "model": "github-copilot/claude-sonnet-4.6"
     },
   },
   "watcher": {
