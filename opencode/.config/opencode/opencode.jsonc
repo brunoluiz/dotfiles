@@ -5,11 +5,11 @@
   "autoupdate": true,
   "snapshot": true,
   "share": "disabled",
-  "enabled_providers": [
-    "github-copilot",
-    "opencode",
-    "llama.cpp"
-  ],
+  // "enabled_providers": [
+  //   "github-copilot",
+  //   "opencode",
+  //   "llama.cpp"
+  // ],
   "plugin": [
     "@mohak34/opencode-notifier@latest"
   ],
