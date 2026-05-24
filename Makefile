@@ -21,6 +21,7 @@ stow:
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow zsh --adopt
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow opencode --adopt
 	-@stow --verbose --target ~ --dir $(shell pwd) --stow nono --adopt
+	-@stow --verbose --target ~ --dir $(shell pwd) --stow agents --adopt
 	-@chmod 700 ~/.ssh
 	-@chmod 600 ~/.ssh/*
 	@echo '✅ Successfully set up stow'
@@ -39,6 +40,7 @@ unstow:
 	-@stow --verbose --target ~ --dir $(shell pwd) --delete zsh
 	-@stow --verbose --target ~ --dir $(shell pwd) --delete opencode
 	-@stow --verbose --target ~ --dir $(shell pwd) --delete nono
+	-@stow --verbose --target ~ --dir $(shell pwd) --delete agents
 
 macos:
 	./macos.sh
