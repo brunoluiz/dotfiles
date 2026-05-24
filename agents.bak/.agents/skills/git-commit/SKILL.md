@@ -1,1 +1,0 @@
-../../../git/brunoluiz/dotfiles/agents/.agents/skills/git-commit/SKILL.md
