@@ -10,6 +10,15 @@
   //   "opencode",
   //   "llama.cpp"
   // ],
+  "permission": {
+    "skill": {
+      "*": "allow",
+      "golang*": "ask",
+      "*postgres*": "ask",
+      "*sql*": "ask",
+      "*react*": "ask",
+    }
+  },
   "plugin": [
     "@mohak34/opencode-notifier@latest"
   ],

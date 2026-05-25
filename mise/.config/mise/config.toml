@@ -43,7 +43,7 @@ yq = "4.52.4"
 docker-cli = "29.0.2"
 bazel = "8.6.0"
 pnpm = "11.1.2"
-opencode = "1.15.5"
+opencode = "1.15.10"
 
 [settings]
 experimental = true
