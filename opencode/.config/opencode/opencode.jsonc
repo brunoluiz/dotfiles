@@ -17,6 +17,9 @@
       "*postgres*": "ask",
       "*sql*": "ask",
       "*react*": "ask",
+    },
+    "external_directory": {
+      "~/go/**": "allow",
     }
   },
   "plugin": [
