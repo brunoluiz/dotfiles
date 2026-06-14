@@ -1,0 +1,37 @@
+[push]
+	default = current
+	followTags = true # always push the tags (usually it is done manually through --follow-tags)
+[core]
+	editor = nvim
+	pager = delta
+	attributesfile = ~/.gitattributes
+	excludesfile = ~/.gitignore_global
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true  # use n and N to move between diff sections
+	line-numbers = true
+[alias]
+	head = rev-parse HEAD # returns head commit
+	undo = reset --soft HEAD^ # undo previous commit
+	changelog = log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit # changelog in the format: $short_commit - $message ($time) <$author>
+	redo = !git add --all && git commit --amend --no-edit -s && git push --force
+	again = !git add --all && git commit -m again && git push
+[status]
+	showUntrackedFiles = all # do not hide anything from me git
+[pull]
+	default = current
+[merge]
+	conflictstyle = zdiff3
+[gpg]
+	format = ssh
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[user]
+	name = Bruno Luiz Silva
+	email = contact@brunoluiz.net
+	signingkey = ~/.ssh/id_ed25519_personal.pub
+[core]
+	sshCommand = ssh -i ~/.ssh/id_ed25519_personal
+[ssh]
+	key = ~/.ssh/id_ed25519_personal

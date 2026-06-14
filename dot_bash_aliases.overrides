@@ -1,0 +1,10 @@
+alias cat=bat
+alias cd=z # does not work?
+alias less=bat
+alias ls=lsd
+alias ps=procs
+alias q='q -d ,'
+alias tf=terraform
+alias tmux=tmux
+alias vi=nvim
+alias vim=nvim

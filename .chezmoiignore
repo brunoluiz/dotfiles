@@ -1,0 +1,6 @@
+**/node_modules/**
+**/.DS_Store
+**/lazy-lock.json
+**/.cache/**
+**/opencode-notifier-state.json
+**/fish_variables

@@ -1,0 +1,9 @@
+eval "$(~/.local/bin/mise activate bash)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/brunoluiz/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
