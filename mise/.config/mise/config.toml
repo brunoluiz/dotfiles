@@ -43,7 +43,9 @@ yq = "4.52.4"
 docker-cli = "29.0.2"
 bazel = "8.6.0"
 pnpm = "11.1.2"
-opencode = "1.15.10"
+opencode = "1.17.3"
+lazygit = "0.62.2"
+rtk = "0.42.4"
 
 [settings]
 experimental = true

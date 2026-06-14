@@ -21,3 +21,10 @@ tinty apply base16-materia
 set -gx PATH $PATH /Users/brunoluiz/.lmstudio/bin
 # End of LM Studio CLI section
 
+
+# pnpm
+set -gx PNPM_HOME "/Users/brunoluiz/Library/pnpm"
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+  set -gx PATH "$PNPM_HOME/bin" $PATH
+end
+# pnpm end

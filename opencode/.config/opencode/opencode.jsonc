@@ -4,7 +4,9 @@
   "small_model": "anthropic/claude-sonnet-4-6",
   "autoupdate": true,
   "snapshot": true,
-  "share": "disabled",
+  "formatter": true,
+  "lsp": true,
+  "share": "auto",
   // "enabled_providers": [
   //   "github-copilot",
   //   "opencode",
@@ -36,6 +38,9 @@
       "url": "https://mcp.context7.com/mcp",
       "enabled": false
     },
+  },
+  "experimental": {
+    "batch_tool": true
   },
   "watcher": {
     "ignore": [
