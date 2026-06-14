@@ -4,3 +4,7 @@
 **/.cache/**
 **/opencode-notifier-state.json
 **/fish_variables
+README.md
+Makefile
+Brewfile
+macos.sh
