@@ -46,6 +46,7 @@ pnpm = "11.1.2"
 opencode = "1.17.3"
 lazygit = "0.62.2"
 rtk = "0.42.4"
+chezmoi = "2.70.5"
 
 [settings]
 experimental = true
