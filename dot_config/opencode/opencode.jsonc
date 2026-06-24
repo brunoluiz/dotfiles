@@ -13,19 +13,20 @@
   //   "llama.cpp"
   // ],
   "permission": {
-    "skill": {
-      "*": "allow",
-      "golang*": "ask",
-      "*postgres*": "ask",
-      "*sql*": "ask",
-      "*react*": "ask",
-    },
+    // "skill": {
+    //   "*": "allow",
+    //   "*golang*": "ask",
+    //   "*postgres*": "ask",
+    //   "*sql*": "ask",
+    //   "*react*": "ask",
+    // },
     "external_directory": {
       "~/go/**": "allow",
     }
   },
   "plugin": [
-    "@mohak34/opencode-notifier@latest"
+    "@mohak34/opencode-notifier@latest",
+    "opencode-plugin-langfuse",
   ],
   "mcp": {
     "atlassian": {
@@ -40,7 +41,8 @@
     },
   },
   "experimental": {
-    "batch_tool": true
+    "batch_tool": true,
+    "openTelemetry": true,
   },
   "watcher": {
     "ignore": [

@@ -8,6 +8,9 @@ end
 # Load mise environment (binary version management)
 mise activate fish | source
 
+# Load fnox secrets manager
+fnox activate fish | source
+
 # Load prompt/PS1 engine
 starship init fish | source
 
@@ -21,10 +24,9 @@ tinty apply base16-materia
 set -gx PATH $PATH /Users/brunoluiz/.lmstudio/bin
 # End of LM Studio CLI section
 
-
 # pnpm
-set -gx PNPM_HOME "/Users/brunoluiz/Library/pnpm"
+set -gx PNPM_HOME /Users/brunoluiz/Library/pnpm
 if not string match -q -- "$PNPM_HOME/bin" $PATH
-  set -gx PATH "$PNPM_HOME/bin" $PATH
+    set -gx PATH "$PNPM_HOME/bin" $PATH
 end
 # pnpm end

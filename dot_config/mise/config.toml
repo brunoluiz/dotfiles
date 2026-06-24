@@ -4,8 +4,8 @@ direnv = "2.37.1"
 duf = "0.8.1"
 dust = "1.2.3"
 fzf = "0.66.1"
-go = "1.25.7"
-golangci-lint = "2.10.1"
+go = "1.26.4"
+golangci-lint = "latest"
 grpcurl = "latest"
 kubectl = "1.33"
 lsd = "1.2.0"
@@ -45,6 +45,7 @@ rtk = "0.42.4"
 chezmoi = "2.70.5"
 krew = "0.5.0"
 "aqua:fish-shell/fish-shell" = "4.7.1"
+fnox = "1.26.0"
 
 [settings]
 experimental = true
