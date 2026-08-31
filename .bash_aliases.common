@@ -1,0 +1,16 @@
+alias cp='cp -i'
+alias dud='du -d 1 -h'
+alias ff='find . -type f -name'
+alias grep='grep --color'
+alias h='history'
+alias help='man'
+alias hgrep="fc -El 0 | grep"
+alias l='ls -lFh'   #size,show type,human readable
+alias la='ls -lAFh' #long list,show almost all,show type,human readable
+alias ldot='ls -ld .*'
+alias ll='ls -l'    #long list
+alias mv='mv -i'
+alias p='ps -f'
+alias rm='rm -i'
+alias t='tail -f'
+alias unexport='unset'

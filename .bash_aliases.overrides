@@ -1,0 +1,7 @@
+alias cd=z # does not work?
+alias ls=lsd
+alias ps=procs
+alias q='q -d ,'
+alias tf=tofu
+alias vi=nvim
+alias vim=nvim
