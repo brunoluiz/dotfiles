@@ -62,6 +62,21 @@ dotfiles.default_mode = "symlink"
 [bootstrap.repos]
 "~/.dotfiles" = { url = "git@github.com:brunoluiz/dotfiles.git", ref = "mise" }
 
+[bootstrap.macos.dock]
+autohide = false
+orientation = "left"
+tilesize = 43
+show_recents = false
+
+[bootstrap.macos.finder]
+preferred_view_style = "list"
+show_all_files = true
+show_pathbar = true
+
+[bootstrap.macos.trackpad]
+tap_to_click = false
+three_finger_drag = false
+
 [dotfiles]
 "~/.agents" = {}
 "~/.bash_aliases" = {}
