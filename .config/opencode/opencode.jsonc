@@ -1,0 +1,52 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "openai/gpt-5",
+  "small_model": "openai/gpt-5.4-mini",
+  "autoupdate": false,
+  "snapshot": true,
+  "formatter": true,
+  "lsp": true,
+  "share": "manual",
+  "permission": {
+    "external_directory": {
+      "~/go/**": "allow",
+      "/tmp": "allow",
+    }
+  },
+  "agent": {
+    "build": {
+      "permission": {
+        "skill": {
+          "*": "deny",
+          "*golang*": "allow",
+          "*postgres*": "allow",
+          "*sql*": "allow",
+          "*react*": "allow",
+        }
+      }
+    }
+  },
+  "plugin": [
+    // "opencode-plugin-langfuse",
+  ],
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    },
+  },
+  "experimental": {
+    "batch_tool": true,
+    "openTelemetry": true,
+  },
+  "watcher": {
+    "ignore": [
+      "node_modules/**",
+      "dist/**",
+      "out/**",
+      ".git/**",
+      "vendor"
+    ]
+  },
+}
