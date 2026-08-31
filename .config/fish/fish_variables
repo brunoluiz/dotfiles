@@ -1,0 +1,5 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR __fish_initialized:4300
+SETUVAR base16_theme:espresso
+SETUVAR fish_user_paths:/Users/brunoluiz/bin\x1e/Users/brunoluiz/\x2elmstudio/bin\x1e/Users/brunoluiz/\x2ecodeium/windsurf/bin\x1e/Users/brunoluiz/\x2elocal/bin\x1e/Users/brunoluiz/\x2ekrew/bin\x1e/opt/homebrew/bin\x1e/Applications/Visual\x20Studio\x20Code\x2eapp/Contents/Resources/app/bin
