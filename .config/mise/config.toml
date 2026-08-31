@@ -1,0 +1,86 @@
+[tools]
+bat = "0.26.1"
+direnv = "2.37.1"
+duf = "0.8.1"
+dust = "1.2.3"
+fzf = "0.66.1"
+go = "1.26.4"
+golangci-lint = "latest"
+grpcurl = "latest"
+kubectl = "1.33"
+lsd = "1.2.0"
+node = "26.1.0"
+opentofu = "1.11.5"
+semgrep = "1.142.0"
+starship = "1.24.0"
+tflint = "0.63.1"
+trivy = "0.69.1"
+argocd = "3.3.1"
+cilium-cli = "0.18.8"
+colima = "0.10.1"
+coreutils = "0.6.0"
+delta = "0.18.2"
+docker-compose = "latest"
+doctl = "1.146.0"
+ffmpeg = "8.0"
+fx = "39.2.0"
+gh = "2.87.2"
+gum = "0.17.0"
+helm = "4.1.1"
+hurl = "7.0.0"
+jq = "1.8.1"
+just = "1.43.0"
+k9s = "0.50.18"
+kubectx = "0.9.5"
+kustomize = "5.7.1"
+pandoc = "3.8.2.1"
+ripgrep = "15.1.0"
+ripgrep-all = "0.10.9"
+yq = "4.52.4"
+docker-cli = "29.0.2"
+pnpm = "11.1.2"
+opencode = "1.18.13"
+lazygit = "0.62.2"
+chezmoi = "2.70.5"
+krew = "0.5.0"
+"aqua:fish-shell/fish-shell" = "4.7.1"
+fnox = "1.26.0"
+watchexec = "latest"
+hcloud = "1.66.0"
+flux2 = "2.9.1"
+age = "latest"
+sops = "latest"
+cocogitto = "7.0.0"
+kind = "0.32.0"
+uv = "latest"
+"aqua:nushell/nushell" = "0.115.1"
+
+[settings]
+experimental = true
+trusted_config_paths = ["~/.local/share/opencode/worktree"]
+dotfiles.root = "~/.dotfiles"
+dotfiles.default_mode = "symlink"
+
+[bootstrap.repos]
+"~/.dotfiles" = { url = "git@github.com:brunoluiz/dotfiles.git", ref = "mise" }
+
+[dotfiles]
+"~/.agents" = {}
+"~/.bash_aliases" = {}
+"~/.bash_aliases.common" = {}
+"~/.bash_aliases.kubectl" = {}
+"~/.bash_aliases.overrides" = {}
+"~/.config/fish" = {}
+"~/.config/ghostty" = {}
+"~/.config/git" = {}
+"~/.config/nvim" = {}
+"~/.config/opencode" = {}
+"~/.config/pgcli/config" = {}
+"~/.config/starship.toml" = {}
+"~/.editorconfig" = {}
+"~/.gitconfig" = {}
+"~/.npmrc" = {}
+"~/.sqliterc" = {}
+"~/.ssh/config" = {}
+"~/.zshrc" = {}
+"~/Library/Application Support/nushell" = {}
