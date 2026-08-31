@@ -1,0 +1,23 @@
+-- yep, not the default
+.headers on
+
+-- either use this or .column
+.mode box
+
+-- shows the time to run query
+.timer on
+
+-- shows the number of rows changed
+.changes on
+
+-- otherwise it will show an empty string
+.nullvalue <null>
+
+-- always explain query plan
+-- .eqp on
+
+.print "Databases:"
+.databases
+.print "\nTables:"
+.tables
+.print "\n"
